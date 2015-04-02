@@ -47,10 +47,16 @@ add_action( 'init', 'brand_details', 0 );
 
 
 
-// Brand Cover
+/* Brand Cover
+*
+*  This function gets the details of the brand and creates a cover.
+*  Used:
+*  1. On the Brand Details Edit page
+*  2. On the Brand headers accross the brand site
+*/
 function brand_cover() {  ?>
 
-<div class="card">
+	<div class="card">
 
 		<?php // get_posts gets the details post for this brand
 		$args = array(
@@ -100,3 +106,89 @@ function brand_cover() {  ?>
 	</div>
 
 <?php }
+
+
+
+
+
+/**
+ * Brand Header
+ * This function is set in the header.php file. It handels the brand cover image and links on every page header.
+ *
+ *
+ */
+function brand_header() {
+
+
+	// The main brand dashboard displays a bigger image with a set of edit links.
+	if ( is_front_page() ) { ?>
+
+		<div class="brand-header">
+			<div class="row brand-dash-header gutters container">
+				<div class="col span_3">
+
+					<?php // The Brand Cover is created in the "class-details.php" file.
+					brand_cover(); ?>
+
+				</div>
+				<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?>">
+
+					<p class="secondary">Brand</p>
+
+					<?php // Get Blog Details and display the brands name
+					$blog_details = get_blog_details(); ?>
+					<h1><?php echo $blog_details->blogname; ?> </h1>
+
+				</div>
+
+				<?php // Based on a users role edit links for the brand are displayed ?>
+
+				<div class="col span_6">
+					<p class="secondary edit-links">
+
+						<?php // Editors and Administrators can edit the details of a brand
+						if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-details/" class="secondary">Edit</a><?php } ?>
+
+						<?php // Only the brand owner can archive the brand
+						if( current_user_can('administrator') ) {  ?><a href="/archive" class="secondary">Archive</a><?php } ?>
+
+						<?php // Only the brand owner can delete the brand
+						if( current_user_can('administrator') ) {  ?><a href="/delete" class="secondary">Delete</a><?php } ?>
+
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+	<?php
+	// If it is an inner brand page, a smaller cover is displayed and only a back button.
+	} else { ?>
+
+		<div class="brand-header">
+			<div class="row brand-dash-header gutters container">
+				<div class="col span_2">
+
+					<?php // The Brand Cover is created in the "class-details.php" file.
+					brand_cover(); ?>
+
+				</div>
+				<div class="col span_22 brand-dash-header_text">
+
+					<?php // Get Blog Details and display the brands name
+					$blog_details = get_blog_details(); ?>
+					<h1><?php echo $blog_details->blogname; ?> </h1>
+
+					<?php // Back button that takes you to the dashboard ?>
+					<p class="secondary">
+						<a href="/" class="secondary">Back</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+	<?php }
+
+}
+
+

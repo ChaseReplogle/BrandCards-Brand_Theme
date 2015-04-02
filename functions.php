@@ -29,14 +29,6 @@ function brand_setup() {
 	) );
 
 
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'video', 'quote', 'link',
-	) );
-
 }
 endif; // brand_setup
 add_action( 'after_setup_theme', 'brand_setup' );
@@ -49,9 +41,12 @@ function brand_scripts() {
 	wp_enqueue_style( 'brand-style', get_stylesheet_uri() );
 	// This link shares the stylesheet from the main site for these inner pages.
 	wp_enqueue_style( 'brandcards-style-main', network_home_url() . '/wp-content/themes/brandcards/css/main.css' );
+	wp_enqueue_script( 'brand-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js' );
 	wp_enqueue_script( 'brand-color', get_template_directory_uri() . '/js/colpick.js' );
 	wp_enqueue_script( 'brand-forms', get_template_directory_uri() . '/js/forms.js' );
 	wp_enqueue_script( 'brand-modal', get_template_directory_uri() . '/js/modal.js' );
+	wp_enqueue_script( 'brand-sortable', get_template_directory_uri() . '/js/sortable.js' );
+	wp_enqueue_script( 'brand-fitvid', get_template_directory_uri() . '/js/fitvid.js' );
 
 }
 add_action( 'wp_enqueue_scripts', 'brand_scripts' );
@@ -94,11 +89,22 @@ require get_template_directory() . '/classes/class-invites.php';
 require get_template_directory() . '/classes/class-transfers.php';
 
 /**
+ * Link to Cards file
+ */
+require get_template_directory() . '/classes/class-cards.php';
+
+/**
+ * Link to User file
+ */
+require get_template_directory() . '/classes/class-users.php';
+
+/**
  * Functions to include
  */
 require get_template_directory() . '/functions/function-remove-user.php';
 require get_template_directory() . '/functions/function-archive-brand.php';
 require get_template_directory() . '/functions/function-switch-role.php';
+require get_template_directory() . '/functions/function-card.php';
 
 /**
  * Hide Admin Bar.
@@ -137,6 +143,14 @@ function allow_ms_parent_redirect($allowed)
 
 
 
+/**
+ * Adds support for featured images.
+ *
+ *
+ */
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'web', 800, 1000 );
+
 
 
 
@@ -152,3 +166,48 @@ function custom_wpadmin_blockusers_init() {
 }
 
 */
+
+
+
+add_action( 'template_redirect', 'redirect_to_specific_page' );
+
+function redirect_to_specific_page() {
+
+if (!is_user_logged_in()) {
+
+wp_redirect( network_site_url(), 301 );
+  exit;
+    }
+}
+
+
+
+
+
+
+
+
+add_action('wp_ajax_reorder', 'my_save_item_order');
+
+// Reorder Ajax Request
+function my_save_item_order() {
+    global $wpdb;
+
+    $order = explode(',', $_POST['order']);
+    $counter = 0;
+    $post_type = 'cards';
+    foreach ($order as $item_id) {
+        // Update post 37
+		  $menu_update = array(
+		      'ID'          	=> $item_id,
+		      'menu_order' 		=> $counter,
+		      'post_type'		=> 'cards',
+		  );
+
+		// Update the post into the database
+		  wp_update_post( $menu_update );
+
+  		$counter++;
+    }
+    die(1);
+}

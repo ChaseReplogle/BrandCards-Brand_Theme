@@ -65,6 +65,7 @@ function the_post_navigation() {
 }
 endif;
 
+
 if ( ! function_exists( 'brand_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -271,156 +272,9 @@ add_action( 'save_post',     'brand_category_transient_flusher' );
 
 
 
-/**
- * User Sidebar List
- *
- *
- */
-function user_sidebar() { ?>
-	<div class="new-user">
-		<a href="/invite">Invite New User</a>
-	</div>
-
-	<div class="owner-user">
-		<?php $users = get_users( array('role' => 'administrator' ) );
-		if($users) { ?><p class="user-title secondary row-border-bottom">Owner</p><?php }
-		foreach ( $users as $user ) {
-			$user_id = $user->ID; ?>
-			<div class="user-item row gutters">
-				<div class="col span_5">
-					<?php switch_to_blog(1); echo get_avatar( $user_id, 45 ); restore_current_blog(); ?>
-				</div>
-				<div class="col span_19">
-					<p class="username"><a href="#"><?php echo  $user->first_name . ' ' . $user->last_name; ?></a></p>
-					<div class="user-links">
-						<p>
-							<a href="/transfer-ownership" class="transfer-link">Transfer Ownership</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-	</div>
-
-	<div class="editors-user">
-		<?php $users = get_users( array('role' => 'editor' ) );
-		if($users) { ?><p class="user-title secondary row-border-bottom">Editors</p><?php }
-		foreach ( $users as $user ) {
-			$user_id = $user->ID;
-			$role = $user->roles[0]; ?>
-			<div class="user-item row gutters">
-				<div class="col span_5">
-					<?php switch_to_blog(1); echo get_avatar( $user_id, 45 ); restore_current_blog(); ?>
-				</div>
-				<div class="col span_19">
-					<p class="username"><a href="#"><?php echo  $user->first_name . ' ' . $user->last_name; ?></a></p>
-					<div class="user-links">
-						<p>
-							<?php $url = add_query_arg(array('action'=>'remove_user', 'user_id'=>$user_id, 'blog_id'=>$blog_details->blog_id));
-							echo  "<a href='".$url. "'>Remove</a>"; ?>
-							<?php $url = add_query_arg(array('action'=>'switch_role', 'user_id'=>$user_id, 'blog_id'=>$blog_details->blog_id, 'role'=>$role));
-							echo  "<a href='".$url. "'>Switch Role</a>"; ?>
-						</p>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-	</div>
-
-	<div class="subscribers-user">
-		<?php $users = get_users( array('role' => 'subscriber' ) );
-		if($users) { ?><p class="user-title secondary row-border-bottom">Subscribers</p><?php }
-		foreach ( $users as $user ) {
-			$user_id = $user->ID;
-			$role = $user->roles[0]; ?>
-			<div class="user-item row gutters">
-				<div class="col span_5">
-					<?php switch_to_blog(1); echo get_avatar( $user_id, 45 ); restore_current_blog(); ?>
-				</div>
-				<div class="col span_19">
-					<p class="username"><a href="#"><?php echo  $user->first_name . ' ' . $user->last_name; ?></a></p>
-					<div class="user-links">
-						<p>
-							<?php $url = add_query_arg(array('action'=>'remove_user', 'user_id'=>$user_id, 'blog_id'=>$blog_details->blog_id));
-							echo  "<a href='".$url. "'>Remove</a>"; ?>
-							<?php $url = add_query_arg(array('action'=>'switch_role', 'user_id'=>$user_id, 'blog_id'=>$blog_details->blog_id, 'role'=>$role));
-							echo  "<a href='".$url. "'>Switch Role</a>"; ?>
-						</p>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-	</div>
-
-	<div class="invites-user">
-		<?php $invites = get_posts( array('post_type' => 'invites' ) );
-		if($invites) { ?><p class="user-title secondary row-border-bottom">Invited</p><?php }
-		foreach ( $invites as $invite ) { ?>
-			<div class="user-item user-item-invited row gutters">
-				<div class="col span_5">
-					<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/invited.svg" width="170px"/>
-				</div>
-				<div class="col span_19">
-					<p class="username"><a href="#"><?php echo get_post_meta( $invite->ID, 'invite_email', 'true' ); ?></a></p>
-					<div class="user-links">
-						<p>
-							<a href="<?php echo get_delete_post_link( $invite->ID, true ); ?>">Delete</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		<?php } ?>
-	</div>
-
-<?php
-
-}
 
 
 
-/**
- * Brand Header
- *
- *
- */
-function brand_header() {
 
-if ( is_front_page() ) { ?>
 
-	<div class="brand-header">
-		<div class="row brand-dash-header gutters container">
-			<div class="col span_3">
-				<?php brand_cover(); ?>
-			</div>
-			<div class="col span_15 brand-dash-header_text">
-				<?php $blog_details = get_blog_details(); ?>
-				<h1><?php echo $blog_details->blogname; ?> </h1>
-				<p class="secondary edit-links">
-					<a href="/edit-details/" class="secondary">Edit</a>
-					<a href="/archive" class="secondary">Archive</a>
-					<a href="/delete" class="secondary">Delete</a>
-				</p>
-			</div>
-			<div class="col span_6 new-card">
-				<a href="#">Add New Card</a>
-			</div>
-		</div>
-	</div>
 
-<?php } else { ?>
-
-<div class="brand-header">
-		<div class="row brand-dash-header gutters container">
-			<div class="col span_18 brand-dash-header_text">
-				<?php $blog_details = get_blog_details(); ?>
-				<h1><a href="/"><?php echo $blog_details->blogname; ?> </a></h1>
-				<p class="secondary edit-links">
-					<a href="/" class="secondary">Back</a>
-			</div>
-
-		</div>
-	</div>
-
-<?php }
-
-}

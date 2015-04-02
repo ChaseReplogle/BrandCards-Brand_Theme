@@ -45,14 +45,16 @@ add_action( 'init', 'invites', 0 );
 
 
 
-// Prepopulates the Gravity Form Invite Form with the Brand Name
+// Prepopulates the Gravity Form Invite Form with the Brand Name. This field is hidden.
+
 add_filter('gform_field_value_invite_brand', 'invite_form_population_name');
 function invite_form_population_name($value){
 	$blog_id = get_current_blog_id();
     return get_blog_details( $blog_id )->blogname;
 }
 
-// Prepopulates the Gravity Form Invite Form with the brand ID
+// Prepopulates the Gravity Form Invite Form with the brand ID. This field is hidden.
+
 add_filter('gform_field_value_invite_brand_id', 'invite_form_population_id');
 function invite_form_population_id($value){
     return get_current_blog_id();

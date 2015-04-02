@@ -11,7 +11,6 @@ if(isset($_GET['action']) && $_GET['action']=='remove_user') {
     add_action('init','remove_user');
 }
 
-
 function remove_user(){
 
 	// Get User ID

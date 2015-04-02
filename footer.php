@@ -10,12 +10,18 @@
 
 	</div><!-- #content -->
 
+
+
 </div><!-- #page -->
 
-<!-- Modals -->
+
 
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+</script>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-/*  Template Name: Brand: Default Full  */
+/*  Template Name: Brand: Default Sidebar  */
 
 /**
  *
