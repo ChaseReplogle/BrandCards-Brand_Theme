@@ -41,12 +41,13 @@ function brand_scripts() {
 	wp_enqueue_style( 'brand-style', get_stylesheet_uri() );
 	// This link shares the stylesheet from the main site for these inner pages.
 	wp_enqueue_style( 'brandcards-style-main', network_home_url() . '/wp-content/themes/brandcards/css/main.css' );
-	wp_enqueue_script( 'brand-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js' );
-	wp_enqueue_script( 'brand-color', get_template_directory_uri() . '/js/colpick.js' );
-	wp_enqueue_script( 'brand-forms', get_template_directory_uri() . '/js/forms.js' );
-	wp_enqueue_script( 'brand-modal', get_template_directory_uri() . '/js/modal.js' );
-	wp_enqueue_script( 'brand-sortable', get_template_directory_uri() . '/js/sortable.js' );
-	wp_enqueue_script( 'brand-fitvid', get_template_directory_uri() . '/js/fitvid.js' );
+	wp_enqueue_script( 'brand-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js', array(), '1', true );
+	wp_enqueue_script( 'brand-color', get_template_directory_uri() . '/js/colpick.js', array(), '1', true );
+	wp_enqueue_script( 'brand-forms', get_template_directory_uri() . '/js/forms.js', array(), '1', true );
+	wp_enqueue_script( 'brand-modal', get_template_directory_uri() . '/js/modal.js', array(), '1', true );
+	wp_enqueue_script( 'brand-fitvid', get_template_directory_uri() . '/js/fitvid.js', array(), '1', true );
+	wp_enqueue_script( 'brand-sortable', get_template_directory_uri() . '/js/sortable.js', array(), '1', true );
+
 
 }
 add_action( 'wp_enqueue_scripts', 'brand_scripts' );
@@ -105,6 +106,7 @@ require get_template_directory() . '/functions/function-remove-user.php';
 require get_template_directory() . '/functions/function-archive-brand.php';
 require get_template_directory() . '/functions/function-switch-role.php';
 require get_template_directory() . '/functions/function-card.php';
+require get_template_directory() . '/functions/function-reorder-cards.php';
 
 /**
  * Hide Admin Bar.
@@ -187,27 +189,3 @@ wp_redirect( network_site_url(), 301 );
 
 
 
-add_action('wp_ajax_reorder', 'my_save_item_order');
-
-// Reorder Ajax Request
-function my_save_item_order() {
-    global $wpdb;
-
-    $order = explode(',', $_POST['order']);
-    $counter = 0;
-    $post_type = 'cards';
-    foreach ($order as $item_id) {
-        // Update post 37
-		  $menu_update = array(
-		      'ID'          	=> $item_id,
-		      'menu_order' 		=> $counter,
-		      'post_type'		=> 'cards',
-		  );
-
-		// Update the post into the database
-		  wp_update_post( $menu_update );
-
-  		$counter++;
-    }
-    die(1);
-}

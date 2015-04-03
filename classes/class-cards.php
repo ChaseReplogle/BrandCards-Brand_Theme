@@ -58,7 +58,7 @@ add_action( 'init', 'cards', 0 );
 function card() { ?>
 
 <?php // Get current crads ID
-$post_id = $post->ID; ?>
+$post_id = get_the_ID(); ?>
 
 <li class="card-item ui-state-default" id='<?php echo $post_id; ?>'>
 
