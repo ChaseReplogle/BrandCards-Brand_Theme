@@ -37,7 +37,7 @@ function user_sidebar() { ?>
 			<div class="user-item row gutters">
 				<?php //  User Avatar: stored in the main network blog, so we need to switch to it. ?>
 				<div class="col span_5">
-					<?php switch_to_blog(1); echo get_avatar( $user_id, 45 ); restore_current_blog(); ?>
+					<?php switch_to_blog(1); echo get_avatar( $user_id, 100 ); restore_current_blog(); ?>
 				</div>
 
 				<div class="col span_19">

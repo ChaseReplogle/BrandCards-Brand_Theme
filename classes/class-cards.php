@@ -55,7 +55,7 @@ add_action( 'init', 'cards', 0 );
  *
  *
  */
-function card() { ?>
+function card($single) { ?>
 
 <?php // Get current crads ID
 $post_id = get_the_ID(); ?>
@@ -67,7 +67,7 @@ $post_id = get_the_ID(); ?>
 
 		<?php // Get a list of card categories. Each card will be tested and layout determined by the category.
 			  // The category is automatically set by the Gravity Forms form.
-			$post_id = $post->ID;
+			$post_id = get_the_ID();
 			$categories = get_the_category($post->ID);
 			foreach($categories as $category) {
 
@@ -76,6 +76,10 @@ $post_id = get_the_ID(); ?>
 
 
 				// Logo Card
+
+				// Get Card ID
+				$post_id = get_the_ID();
+
 				if ($category->slug == 'logo') { ?>
 				<div class="card-link logos"  style='background: #<?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
 					<a href="<?php the_permalink(); ?>" class="card-link-a">
@@ -95,6 +99,10 @@ $post_id = get_the_ID(); ?>
 
 
 				<?php // Image Card
+
+				// Get Card ID
+				$post_id = get_the_ID();
+
 				} elseif ($category->slug == 'image') { ?>
 				<div class="card-link images">
 					<a href="<?php the_permalink(); ?>" class="card-link-a">
@@ -116,6 +124,10 @@ $post_id = get_the_ID(); ?>
 
 
 				<?php // Color Card
+
+				// Get Card ID
+				$post_id = get_the_ID();
+
 				} elseif ($category->slug == 'color') { ?>
 
 					<?php // This custom field is a string created by a list field in Gravity Forms
@@ -187,6 +199,10 @@ $post_id = get_the_ID(); ?>
 
 
 				<?php // Color Palette Card
+
+				// Get Card ID
+				$post_id = get_the_ID();
+
 				} elseif ($category->slug == 'palette') { ?>
 					<div class="card-link palettes">
 					<a href="<?php the_permalink(); ?>" class="card-link-a">
@@ -321,11 +337,11 @@ $post_id = get_the_ID(); ?>
 
 
 					    <?php // If it is the single Card page display the actual video with an iframe embed
-						if(is_single()) { ?>
+						if( $single == 'single' ) { ?>
 
 							<?php // if there is a vimeo code embed the vimeo player with the retreived ID inserted.
 							if(!empty($vimeo)) { ?>
-								<iframe src="//player.vimeo.com/video/<?php echo $vimeo; ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="820" height="461" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+								<iframe src="//player.vimeo.com/video/<?php echo $vimeo; ?>?title=0&byline=0&portrait=0&color=ffffff" width="820" height="461" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					        <?php } ?>
 
 
@@ -395,9 +411,9 @@ function related_files() {
 	// Get the Cards ID
 	$post_id = get_the_ID();
 
-	// Check the Card for Related Fiels
+	// Check the Card for Related Fields or color palette
 	$files = get_post_meta($post_id, 'card-related-files', $single);
-
+	$palette = get_post_meta($post_id, 'card-palette', $single );
 
 	// If files exist create the form
 	if($files) { ?>
@@ -473,6 +489,89 @@ function related_files() {
 				<input type="hidden" name="card_name" value="<?php echo $file_name; ?>">
 
 				<div class="controls">
+				 	<input type="submit" id="singlebutton" name="singlebutton" class="button button-block" value="Download">
+				</div>
+			</form>
+		</div>
+
+
+	<?php // If the card is a color palette, create a .ase file to download.
+	} elseif ($palette) { ?>
+
+		<?php
+		// Get the title of the card
+		$card_title = get_the_title();
+
+		// Get an array of the colors in the palette
+		$colors = get_post_custom_values( 'card-palette' );
+
+		// Create an empty array that we will fill and send to teh .ase file generator
+		$colors_array = '';
+
+			// For each color in the palette
+			foreach ( $colors as $key => $value ) {
+
+				// seperate out the values
+				$colors = explode("|", $value);
+
+				// Get the color name
+			    $color_name = $colors[0];
+
+			    // Remove the # character if it has been added
+			    $HEX = preg_replace('{^\.}', '', $colors[1], 1);
+
+			    // Create the color variable
+				$color = array($HEX, $color_name);
+
+				// Add it to the array we are passign to teh .ase file gnerator
+				$colors_array[] = $color;
+			}
+		?>
+
+		<?php // Create the full array that is sent through the form
+		$palettes = array (
+	        array (
+	            "title"     => $card_title,
+	            "colors"    => $colors_array,
+	        ),
+	    );
+
+
+	    // Pass this array in a hidden input. ?>
+	    <div class="card-files">
+			<h3>Download Related Files</h3>
+			<form class="form-horizontal" action="<?php echo get_template_directory_uri(); ?>/functions/function-download-palette.php" method="get">
+
+			<?php // the code below creates the name that will be passed on for the .zip file. (exampel: BrandName_Card-Name.zip)
+			global $blog_id;
+			global $post;
+
+			// Get this brands details
+		  	$blog_details = get_blog_details($blog_id);
+
+		  	// Get the main BrandCards details
+		  	$site_details = get_blog_details(1);
+
+		  	// Get the BrandCards domain
+		  	$main_url = '.'.$site_details->domain;
+
+		  	// Get the current Brand's name
+		  	$site_name = str_replace($main_url, "", $blog_details->domain);
+
+		  	// Get this cards slug
+		  	$slug = get_post( $post )->post_name;
+
+		  	// Put the site name and slug together.
+		  	$file_name = $site_name . '_' . $slug;
+
+		  		// Pass this file name in a hidden input. ?>
+				<input type="hidden" name="ase_name" value="<?php echo $file_name; ?>">
+
+				<input type="checkbox" name="ase" value="<?php echo 'Adobe Color Swatch File'; ?>" checked>
+				<label class="checkbox" for="ase"><?php echo 'Adobe Color Swatch File'; ?></label>
+
+				<div class="controls">
+					<input type="hidden" name="palette_array" value="<?php echo base64_encode(serialize($palettes)); ?>">
 				 	<input type="submit" id="singlebutton" name="singlebutton" class="button button-block" value="Download">
 				</div>
 			</form>

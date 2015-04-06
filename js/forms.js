@@ -194,9 +194,8 @@ $(document).ready( function() {
 
 
 		$(document).ready( function() {
-			var cardHeight = $(".single-cards .card-link-wrapper").outerHeight()+"px"
+			var cardHeight = $(".single-cards .card-single-wrapper .card-link-wrapper").outerHeight()+"px"
 
-			$(".card-left").attr('style',"height:"+ cardHeight);
 			$(".card-right").attr('style',"height:"+ cardHeight);
 
 		});
@@ -228,3 +227,13 @@ $(document).ready(function () {
     // Target your .container, .wrapper, .post, etc.
     $(".single-cards .card-link").fitVids();
   });
+
+
+
+$(document).ready(function(){
+	var id = $('article.type-cards').attr('id');
+    $('.card-sidebar .cards-grid').find('#'+id).addClass('current-menu-item');
+  });
+
+
+

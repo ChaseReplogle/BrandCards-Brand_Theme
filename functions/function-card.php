@@ -44,8 +44,12 @@ add_filter( 'get_previous_post_sort', 'wpse73190_gist_adjacent_post_sort' );
  *
  *
  */
-function delete_modal() { ?>
+function delete_modal() {
 
+// Get Card ID from URL
+$card_id = $_GET[id];
+
+?>
 
 <div class="modal" id="card-delete">
   <div class="header">

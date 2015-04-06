@@ -4,24 +4,54 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="row gutters">
-		<div class="col span_2 card-left "></div>
-		<div class="card-single-wrapper col span_20  ">
-			<?php card(); ?>
+		<div class="col span_4 card-sidebar">
+			<ul class="cards-grid" >
+						<?php // WP_Query arguments
+						$args = array (
+							'post_type'             => 'cards',
+						    'orderby' 				=> 'menu_order',
+						    'order' 				=> 'ASC'
+						);
+
+
+						$cards = new WP_Query( $args );
+
+						if ( $cards->have_posts() ) {
+							while ( $cards->have_posts() ) {
+								$cards->the_post();
+
+									card('sidebar');
+							 }
+						} else {
+						}
+						wp_reset_postdata(); ?>
+					</ul>
+
+
+					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+					<div class="new-card">
+						<div class="card-link-wrapper">
+							<div class="card-link">
+								<a href="/new-card">Add New Card</a>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
 		</div>
-		<div class="col span_2 card-right "></div>
-	</div>
 
-	<div class="row">
-		<div class="col span_2 filler">.</div>
+		<div class="card-single-wrapper col span_20  ">
+			<?php card('single'); ?>
 
-		<div class="col span_20 content-column">
+			<div class="col span_24 content-column">
 			<nav id="arrow-nav" class="clear" role="navigation">
 				<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&#8592; Left Arrow</span>' ); ?></div>
+				<div class="nav-label"><span>Keyboard Shortcuts</span></div>
 				<div class="nav-next"><?php next_post_link( '%link', '<span class="meta-nav">Right Arrow &#8594;</span>' ); ?></div>
 			</nav>
+
 
 			<div class="entry-content">
 				<header class="entry-header clear">
@@ -63,8 +93,11 @@
 			</div><!-- .entry-content -->
 		</div>
 
-		<div class="col span_2 filler">.</div>
+
+		</div>
+
 	</div>
+
 
 </article><!-- #post-## -->
 
