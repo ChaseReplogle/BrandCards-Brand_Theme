@@ -40,11 +40,21 @@ get_header(); ?>
 				<div class="col span_10 details-card">
 					<h4><?php echo $blog_details->blogname; ?></h4>
 					<div class="card">
+
 						<?php brand_cover(); ?>
+
+						<?php if(! $detail_ID) { ?>
+							<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
+								<div class="card-inner">
+									<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg" />
+								</div>
+							</div>
+						<?php } ?>
+
 					</div>
 					<div class="brand-cover-author">
 						<?php $blog_admin = get_bloginfo('admin_email');
-						switch_to_blog(1); echo get_avatar( $blog_admin, 30 ); restore_current_blog(); ?>
+						switch_to_blog(1); echo get_avatar( $blog_admin, 50 ); restore_current_blog(); ?>
 						<?php $user = get_user_by( 'email', $blog_admin ); ?>
 						<p><?php echo  $user->first_name . ' ' . $user->last_name; ?></p>
 					</div>
