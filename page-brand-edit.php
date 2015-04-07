@@ -31,7 +31,10 @@ get_header(); ?>
 
 					foreach ( $details as $detail ) : ?>
 						<?php $detail_ID = $detail->ID; ?>
-						<?php echo do_shortcode("[gravityform id='1' title='false' update=".$detail_ID."]"); ?>
+						<?php if($detail_ID) { echo do_shortcode("[gravityform id='1' title='false' update=".$detail_ID."]");
+						} else ?>
+							<?php gravity_form( 1, false, false, false, '', false ); ?>
+						<?php } ?>
 					<?php endforeach; ?>
 				</div>
 
