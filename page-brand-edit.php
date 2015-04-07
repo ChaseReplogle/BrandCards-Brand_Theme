@@ -42,7 +42,7 @@ get_header(); ?>
 					</div>
 					<div class="brand-cover-author">
 						<?php $blog_admin = get_bloginfo('admin_email');
-						switch_to_blog(1); echo get_avatar( $blog_admin, 30 ); restore_current_blog(); ?>
+						switch_to_blog(1); echo get_avatar( $blog_admin, 60 ); restore_current_blog(); ?>
 						<?php $user = get_user_by( 'email', $blog_admin ); ?>
 						<p><?php echo  $user->first_name . ' ' . $user->last_name; ?></p>
 					</div>
