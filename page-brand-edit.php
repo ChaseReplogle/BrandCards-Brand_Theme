@@ -41,7 +41,6 @@ get_header(); ?>
 						<?php brand_cover(); ?>
 					</div>
 					<div class="brand-cover-author">
-					TEST
 						<?php $blog_admin = get_bloginfo('admin_email');
 						switch_to_blog(1); user_profile_image($user_id, 30); restore_current_blog(); ?>
 						<?php $user = get_user_by( 'email', $blog_admin ); ?>
