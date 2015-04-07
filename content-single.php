@@ -69,7 +69,9 @@
 
 				<div class="row gutters">
 					<div class="col span_15 card-content">
-						<div class="card-meta">
+						<?php $content = get_the_content(); ?>
+
+						<div class="card-meta <?php if( empty($content) ) { echo 'full-width'; }?>">
 							<div class="meta-item">
 								<span class="label">Created:</span>
 								<?php the_date(); ?>
