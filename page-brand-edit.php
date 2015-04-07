@@ -31,11 +31,10 @@ get_header(); ?>
 
 					foreach ( $details as $detail ) : ?>
 						<?php $detail_ID = $detail->ID; ?>
-						<?php if($detail_ID) { echo do_shortcode("[gravityform id='1' title='false' update=".$detail_ID."]");
-						} else { ?>
-							<?php gravity_form( 1, false, false, false, '', false ); ?>
-						<?php } ?>
+						<?php echo do_shortcode("[gravityform id='1' title='false' update=".$detail_ID."]"); ?>
 					<?php endforeach; ?>
+
+					<?php if(! $detail_ID) { gravity_form( 1, false, false, false, '', false ); } ?>
 				</div>
 
 				<div class="col span_10 details-card">
@@ -45,7 +44,7 @@ get_header(); ?>
 					</div>
 					<div class="brand-cover-author">
 						<?php $blog_admin = get_bloginfo('admin_email');
-						switch_to_blog(1); echo get_avatar( $blog_admin, 60 ); restore_current_blog(); ?>
+						switch_to_blog(1); echo get_avatar( $blog_admin, 30 ); restore_current_blog(); ?>
 						<?php $user = get_user_by( 'email', $blog_admin ); ?>
 						<p><?php echo  $user->first_name . ' ' . $user->last_name; ?></p>
 					</div>
