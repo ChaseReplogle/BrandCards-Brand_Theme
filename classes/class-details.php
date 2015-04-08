@@ -80,7 +80,6 @@ function brand_cover() {  ?>
 
 					<?php // If there is a Logo use it to make the cover
 					if ($cover_logo) { ?>
-
 						<div class="brand-cover brand-cover-logo" style="background: #<?php echo get_post_meta($detail->ID, 'cover_color', true); ?>;">
 							<div class="card-inner">
 								<img id="image" src="<?php echo $cover_logo ?>" class="card-image" />
@@ -89,20 +88,24 @@ function brand_cover() {  ?>
 
 					<?php // If there is no logo, there should be a cover image to use,
 					} elseif ($cover_image ) { ?>
-
 						<div class="brand-cover">
 							<img src="<?php echo $cover_image ?>" class="card-image" />
 						</div>
+					<?php } ?>
 
-					<?php } else {
-						//
-						// Need to put a default if empty image
-						//
-					} ?>
 				</a>
+
 			<?php endforeach; ?>
 
+		<?php // If there is no details saved yet, use a filler image
+		} else { ?>
+			<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
+				<div class="card-inner">
+					<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg"  class="card-image" />
+				</div>
+			</div>
 		<?php } ?>
+
 	</div>
 
 <?php }

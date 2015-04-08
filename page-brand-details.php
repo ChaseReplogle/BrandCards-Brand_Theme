@@ -29,11 +29,7 @@ get_header(); ?>
 				<div class="col span_10 details-card">
 					<h4><?php echo $blog_details->blogname; ?></h4>
 					<div class="card">
-						<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
-							<div class="card-inner">
-								<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg" />
-							</div>
-						</div>
+						<?php brand_cover(); ?>
 					</div>
 					<div class="brand-cover-author">
 						<?php $blog_admin = get_bloginfo('admin_email');

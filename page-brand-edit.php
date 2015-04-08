@@ -43,14 +43,6 @@ get_header(); ?>
 
 						<?php brand_cover(); ?>
 
-						<?php if(! $detail_ID) { ?>
-							<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
-								<div class="card-inner">
-									<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg" />
-								</div>
-							</div>
-						<?php } ?>
-
 					</div>
 					<div class="brand-cover-author">
 						<?php $blog_admin = get_bloginfo('admin_email');
