@@ -31,6 +31,14 @@ get_header(); ?>
 
 			</div>
 
+			<div class="row">
+				<div class="col span_24">
+					<span id="pmpro_processing_message" style="visibility: hidden;">
+						<p><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/ajax-loader.gif" id="loading-animation" /> Processing...</p>
+					</span>
+				</div>
+			</div>
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

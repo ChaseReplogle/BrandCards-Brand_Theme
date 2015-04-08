@@ -237,3 +237,10 @@ $(document).ready(function(){
 
 
 
+
+
+
+
+$('button[type="submit"], input[type="submit"]').click(function() {
+	$('#pmpro_processing_message').css( 'visibility', 'visible' );
+});
