@@ -21,11 +21,8 @@ add_action( 'gform_after_submission_6', 'after_archive_submission', 10, 2 );
     	// Get the Brand ID from the gravity form
     	$brand_ID = rgar( $entry, 2);
 
-    	// Set archive variable to True
-    	$deleted = 'Deleted';
-
     	//Perform the Archive Function
-    	update_archived( $brand_ID, $deleted );
+    	wpmu_delete_blog( $brand_ID, $drop );
 
     	//Get main site URL
     	$main_site = get_site_url(1);

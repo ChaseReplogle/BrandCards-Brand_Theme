@@ -104,6 +104,7 @@ require get_template_directory() . '/classes/class-users.php';
  */
 require get_template_directory() . '/functions/function-remove-user.php';
 require get_template_directory() . '/functions/function-archive-brand.php';
+require get_template_directory() . '/functions/function-delete-brand.php';
 require get_template_directory() . '/functions/function-switch-role.php';
 require get_template_directory() . '/functions/function-card.php';
 require get_template_directory() . '/functions/function-reorder-cards.php';
