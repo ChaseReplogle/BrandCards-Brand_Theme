@@ -25,7 +25,7 @@ add_action( 'gform_after_submission_6', 'after_delete_submission', 10, 2 );
         $deleted = 3;
 
         //Perform the Delete Function
-        update_archived( $brand_ID, $deleted );
+        update_blog_status( $brand_ID, 'Attributes', 'Deleted', 'true' );
 
         //Get main site URL
         $main_site = get_site_url(1);
