@@ -22,7 +22,7 @@ add_action( 'gform_after_submission_6', 'after_delete_submission', 10, 2 );
         $brand_ID = rgar( $entry, 2);
 
         //Perform the Delete Function
-        update_blog_status( $brand_ID, 'public', 'deleted', 'true' );
+        update_blog_status( $brand_ID, 'deleted', 1 );
 
         //Get main site URL
         $main_site = get_site_url(1);
