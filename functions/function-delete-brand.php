@@ -21,11 +21,8 @@ add_action( 'gform_after_submission_6', 'after_delete_submission', 10, 2 );
         // Get the Brand ID from the gravity form
         $brand_ID = rgar( $entry, 2);
 
-        // Set archive variable to True
-        $deleted = 3;
-
         //Perform the Delete Function
-        update_blog_status( $brand_ID, 'Attributes', 'Deleted', 'true' );
+        update_blog_status( $brand_ID, 'public', 'deleted', 'true' );
 
         //Get main site URL
         $main_site = get_site_url(1);
