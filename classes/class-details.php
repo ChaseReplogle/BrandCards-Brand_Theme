@@ -67,7 +67,7 @@ function brand_cover() {  ?>
 		$details = get_posts( $args );
 
 		// If there are details
-		if ($cover_image || $cover_logo) {
+		if ($details) {
 
 			// Loop through and create the brand cover
 			foreach ( $details as $detail ) :
@@ -90,6 +90,12 @@ function brand_cover() {  ?>
 					} elseif ($cover_image ) { ?>
 						<div class="brand-cover">
 							<img src="<?php echo $cover_image ?>" class="card-image" />
+						</div>
+					<?php } else { ?>
+						<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
+							<div class="card-inner">
+								<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg"  class="card-image" />
+							</div>
 						</div>
 					<?php } ?>
 
@@ -172,15 +178,19 @@ function brand_header() {
 			<div class="row brand-dash-header gutters container">
 				<div class="col span_2">
 
-					<?php // The Brand Cover is created in the "class-details.php" file.
-					brand_cover(); ?>
+					<a href="/">
+						<?php // The Brand Cover is created in the "class-details.php" file.
+						brand_cover(); ?>
+					</a>
 
 				</div>
 				<div class="col span_22 brand-dash-header_text">
 
 					<?php // Get Blog Details and display the brands name
 					$blog_details = get_blog_details(); ?>
-					<h1><?php echo $blog_details->blogname; ?> </h1>
+					<a href="/">
+						<h1><?php echo $blog_details->blogname; ?> </h1>
+					</a>
 
 					<?php // Back button that takes you to the dashboard ?>
 					<p class="secondary">
