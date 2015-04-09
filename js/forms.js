@@ -244,3 +244,21 @@ $(document).ready(function(){
 $('button[type="submit"], input[type="submit"]').click(function() {
 	$('#pmpro_processing_message').css( 'visibility', 'visible' );
 });
+
+
+
+
+$(document).ready(function() {
+    $('#selecct_all').click(function(event) {  //on click
+        if(this.checked) { // check select status
+            $('.sub_checkbox').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"
+            });
+        }else{
+            $('.sub_checkbox').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
+            });
+        }
+    });
+
+});

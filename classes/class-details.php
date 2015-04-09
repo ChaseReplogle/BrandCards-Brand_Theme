@@ -67,7 +67,7 @@ function brand_cover() {  ?>
 		$details = get_posts( $args );
 
 		// If there are details
-		if ($details) {
+		if ($cover_image || $cover_logo) {
 
 			// Loop through and create the brand cover
 			foreach ( $details as $detail ) :
