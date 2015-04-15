@@ -79,7 +79,7 @@ add_filter("gform_confirmation", "custom_confirmation", 10, 4);
 function custom_confirmation($confirmation, $form, $lead) {
     $post_id = $entry['post_id'];
     $confirmation_url = get_permalink('$post_id');
-    $confirmation = array("redirect" => $confirmation_url );
+    $confirmation = array("redirect" =>"http://www.google.com");
 
     return $confirmation;
 }
