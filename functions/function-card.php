@@ -75,7 +75,24 @@ function wpse132196_redirect_after_trashing() {
 
 // When a new card is created this function redirects them to the card just created.
 
-add_filter("gform_confirmation", "custom_confirmation", 10, 4);
+// Color Card
+add_filter("gform_confirmation_9", "custom_confirmation", 10, 4);
+
+// Image Card
+add_filter("gform_confirmation_8", "custom_confirmation", 10, 4);
+
+// Logo Card
+add_filter("gform_confirmation_7", "custom_confirmation", 10, 4);
+
+// Palette Card
+add_filter("gform_confirmation_10", "custom_confirmation", 10, 4);
+
+// Typography Card
+add_filter("gform_confirmation_11", "custom_confirmation", 10, 4);
+
+// Video Card
+add_filter("gform_confirmation_12", "custom_confirmation", 10, 4);
+
 function custom_confirmation($confirmation, $form, $lead) {
     $post_id = $lead['post_id'];
     $confirmation_url = get_site_url() . "/cards?p=" . $post_id;
