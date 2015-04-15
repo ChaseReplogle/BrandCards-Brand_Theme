@@ -34,7 +34,7 @@ $( document ).ready(function() {
 	$('li.color_picker').click(function(e) {
 
 	   $('.color_picker_field input').focus()
-	   $('.color_picker_field input').trigger('load');
+	   $('.color_picker_field input').trigger('click');
 	})
 });
 
