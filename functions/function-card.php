@@ -77,8 +77,8 @@ function wpse132196_redirect_after_trashing() {
 
 add_action('gform_after_submission', 'redirect_on_post', 10, 2);
 function redirect_on_post($entry, $form) {
-    $post_id = $entry['post_id'];
-    $post_name = get_permalink('$post_id');
-    wp_redirect($post_name);
-    exit;
+   $pid = $lead['post_id'];
+    $confirmation = array("redirect" => get_site_url() . "/?p=$pid");
+    return $confirmation;
+
 }
