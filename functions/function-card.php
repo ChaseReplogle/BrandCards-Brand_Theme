@@ -70,3 +70,15 @@ function wpse132196_redirect_after_trashing() {
     wp_redirect( home_url('/') );
     exit;
  }
+
+
+
+// When a new card is created this function redirects them to the card just created.
+
+add_action('gform_after_submission', 'redirect_on_post', 10, 2);
+function redirect_on_post($entry, $form) {
+    $post_id = $entry['post_id'];
+    $post_name = get_permalink('$post_id');
+    wp_redirect($post_name);
+    exit;
+}
