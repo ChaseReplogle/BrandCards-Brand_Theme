@@ -76,10 +76,9 @@ function wpse132196_redirect_after_trashing() {
 // When a new card is created this function redirects them to the card just created.
 
 add_filter("gform_confirmation", "custom_confirmation", 10, 4);
-function custom_confirmation($confirmation, $form, $lead, $entry) {
-    $post_id = $entry['post_id'];
-    print_r($entry);
-    $confirmation_url = $entry['post_id'];
+function custom_confirmation($confirmation, $form, $lead,) {
+    $post_id = $lead['post_id'];
+    $confirmation_url = get_site_url() . "/cards?p=" . $post_id;
     $confirmation = array("redirect" => $confirmation_url);
 
     return $confirmation;
