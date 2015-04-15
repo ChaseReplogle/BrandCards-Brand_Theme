@@ -190,3 +190,11 @@ wp_redirect( network_site_url(), 301 );
 
 
 
+
+
+// Allows Wordpress to acces .svg files
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
