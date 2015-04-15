@@ -92,7 +92,7 @@ function brand_cover() {  ?>
 							<img src="<?php echo $cover_image ?>" class="card-image" />
 						</div>
 					<?php } else { ?>
-						<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
+						<div class="brand-cover brand-cover-logo" style="background-color: #fff;">
 							<div class="card-inner">
 								<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg"  class="card-image" />
 							</div>
@@ -105,7 +105,7 @@ function brand_cover() {  ?>
 
 		<?php // If there is no details saved yet, use a filler image
 		} else { ?>
-			<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
+			<div class="brand-cover brand-cover-logo" style="background-color: #fff;">
 				<div class="card-inner">
 					<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/white.png"  class="card-image" />
 				</div>
