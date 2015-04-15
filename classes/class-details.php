@@ -107,7 +107,7 @@ function brand_cover() {  ?>
 		} else { ?>
 			<div class="brand-cover brand-cover-logo" style="background-color: #dedede;">
 				<div class="card-inner">
-					<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/gray.svg"  class="card-image" />
+					<img id="image" src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/white.png"  class="card-image" />
 				</div>
 			</div>
 		<?php } ?>
