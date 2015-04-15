@@ -78,7 +78,8 @@ function wpse132196_redirect_after_trashing() {
 add_filter("gform_confirmation", "custom_confirmation", 10, 4);
 function custom_confirmation($confirmation, $form, $lead, $entry) {
     $post_id = $entry['post_id'];
-    $confirmation_url = echo $entry['post_id'];
+    print_r($entry);
+    $confirmation_url = $entry['post_id'];
     $confirmation = array("redirect" => $confirmation_url);
 
     return $confirmation;
