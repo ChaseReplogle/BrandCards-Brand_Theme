@@ -30,6 +30,17 @@ $( document ).ready(function() {
 });
 
 
+$( document ).ready(function() {
+	$('li.color_picker').click(function(e) {
+	   e.preventDefault();
+
+	   $('.color_picker_field input').focus()
+
+	   return false;
+	})
+});
+
+
 
 
 
