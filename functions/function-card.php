@@ -77,7 +77,7 @@ function wpse132196_redirect_after_trashing() {
 
 add_filter("gform_confirmation", "custom_confirmation", 10, 4);
 function custom_confirmation($confirmation, $form, $lead) {
-    $post_id = $form['post_id'];
+    $post_id = $entry['post_id'];
     $confirmation = get_permalink('$post_id');
 
     return $confirmation;
