@@ -153,7 +153,7 @@ function brand_header() {
 						$creator_url = get_post_meta($detail->ID, 'creator_website', true);
 
 						if($creator) { ?>
-							<p class="secondary">Created by: <a href="<?php echo $creator_url ?>"><?php echo $creator ?></a></p>
+							<p class="secondary">Created by: <a href="<?php echo $creator_url ?>" class="secondary"><?php echo $creator ?></a></p>
 						<?php  }
 
 					endforeach;
