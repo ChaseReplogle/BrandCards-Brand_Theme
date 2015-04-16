@@ -144,7 +144,7 @@ function brand_header() {
 					<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
 					$details = get_posts( $args ); ?>
 
-				<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?>">
+				<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } if($details) { echo 'creator-included'; } ?>">
 					<?php // Get Blog Details and display the brands name
 					$blog_details = get_blog_details(); ?>
 					<h1><?php echo $blog_details->blogname; ?> </h1>
