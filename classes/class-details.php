@@ -153,7 +153,7 @@ function brand_header() {
 					$creator_url = get_post_meta($detail->ID, 'creator_website', true);
 
 					if($creator) { ?>
-						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> <?php if($creator) { echo ' includes-creator' } ?>">
+						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> <?php if($creator) { echo ' includes-creator'; } ?>">
 							<h1><?php echo $blog_details->blogname; ?> </h1>
 							<p class="secondary">Created by: <a href="<?php echo $creator_url ?>" class="secondary"><?php echo $creator ?></a></p>
 						</div>
