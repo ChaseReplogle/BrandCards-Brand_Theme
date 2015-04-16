@@ -151,6 +151,8 @@ function brand_header() {
 					foreach ( $details as $detail ) : setup_postdata( $post );
 						$creator = get_post_meta($post->ID, 'brand_creator', true);
 						$creator_url = get_post_meta($post->ID, 'creator_website', true);
+						echo $creator;
+						print_r($post);
 
 						if($creator) { ?>
 							<p class="secondary">Created by: <a href="<?php echo $creator ?>"><?php echo $creator_url ?></a></p>
