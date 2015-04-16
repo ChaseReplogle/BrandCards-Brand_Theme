@@ -146,7 +146,18 @@ function brand_header() {
 					$blog_details = get_blog_details(); ?>
 					<h1><?php echo $blog_details->blogname; ?> </h1>
 
-					<p class="secondary">Brand</p>
+					<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'details' );
+					$details = get_posts( $args );
+					foreach ( $details as $detail ) : setup_postdata( $post );
+						$creator = get_post_meta($detail->ID, 'brand_creator', true);
+						$creator_url = get_post_meta($detail->ID, 'creator_website', true);
+
+						if($creator) { ?>
+							<p class="secondary">Created by: <a href="<?php echo $creator ?>"><?php echo $creator_url ?></a></p>
+						<?php  }
+
+					endforeach;
+					wp_reset_postdata();?>
 
 				</div>
 
