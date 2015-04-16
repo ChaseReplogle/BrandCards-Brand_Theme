@@ -148,7 +148,7 @@ function brand_header() {
 
 					<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
 					$details = get_posts( $args );
-					foreach ( $details as $detail )
+					foreach ( $details as $detail ) :
 						$creator = get_post_meta($detail->ID, 'brand_creator', true);
 						$creator_url = get_post_meta($detail->ID, 'creator_website', true);
 
