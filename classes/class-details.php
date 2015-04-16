@@ -144,7 +144,7 @@ function brand_header() {
 
 				<?php // Get Blog Details and display the brands name
 				$blog_details = get_blog_details(); ?>
-				<h1><?php echo $blog_details->blogname; ?> </h1>
+
 
 				<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
 				$details = get_posts( $args );
@@ -153,10 +153,15 @@ function brand_header() {
 					$creator_url = get_post_meta($detail->ID, 'creator_website', true);
 
 					if($creator) { ?>
-						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> <?php if($creator) { echo ' includes-creator' }">
+						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> <?php if($creator) { echo ' includes-creator' } ?>">
+							<h1><?php echo $blog_details->blogname; ?> </h1>
 							<p class="secondary">Created by: <a href="<?php echo $creator_url ?>" class="secondary"><?php echo $creator ?></a></p>
 						</div>
-					<?php  }
+					<?php  } else { ?>
+						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> ">
+							<h1><?php echo $blog_details->blogname; ?> </h1>
+						</div>
+					<?php } ?>
 
 				endforeach; ?>
 
