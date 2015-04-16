@@ -279,13 +279,20 @@ $post_id = get_the_ID(); ?>
 				} elseif ($category->slug == 'typography') { ?>
 
 				<?php // Get current post ID.
-				$post_id = get_the_ID(); ?>
+				$post_id = get_the_ID();
+
+				// Creat Font Name
+				$font_name_full = get_post_meta($post_id, 'card-font-name', true);
+				$font_clean = preg_replace('/[^a-z]/i','',$font_name_full);
+				$font_name = strtolower($font_clean);
+
+				?>
 
 					<?php // Embeds the uploaded font onto the page to use as an example
 						  // It also sets up the font name to use later. ?>
 					<style type="text/css">
 						@font-face {
-						    font-family: "<?php echo get_post_meta($post_id, 'card-font-name', true); ?>";
+						    font-family: "<?php echo $font_name; ?>";
 						    src: url('<?php echo get_post_meta($post_id, 'card-font-ttf', true); ?>') format('truetype');
 						    src: url('<?php echo get_post_meta($post_id, 'card-font-woff', true); ?>') format('woff');
 						}
@@ -297,13 +304,13 @@ $post_id = get_the_ID(); ?>
 							<div class="row example-typography">
 								<div class="col span_14 left">
 									<?php // Applies the font name to a style element for each text item. ?>
-									<h2 style="font-family: <?php echo get_post_meta($post_id, 'card-font-name', true); ?>;">Aa</h2>
-									<h4 style="font-family: <?php echo get_post_meta($post_id, 'card-font-name', true); ?>;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</h4>
-									<h4 style="font-family: <?php echo get_post_meta($post_id, 'card-font-name', true); ?>;">abcdefghijklmnopqrstuvwxwz</h4>
+									<h2 style="font-family: <?php echo $font_name; ?>;">Aa</h2>
+									<h4 style="font-family: <?php echo $font_name; ?>;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</h4>
+									<h4 style="font-family: <?php echo $font_name; ?>;">abcdefghijklmnopqrstuvwxwz</h4>
 								</div>
 								<div class="col span_10 right">
-									<h3 style="font-family: <?php echo get_post_meta($post_id, 'card-font-name', true); ?>;"><?php echo get_post_meta($post_id, 'card-font-name', true); ?></h3>
-									<p style="font-family: <?php echo get_post_meta($post_id, 'card-font-name', true); ?>;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a tristique tellus, a mattis nulla. Cras eu leo non orci convallis suscipit. Mauris aliquet tempus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									<h3 style="font-family: <?php echo $font_name; ?>;"><?php echo get_post_meta($post_id, 'card-font-name', true); ?></h3>
+									<p style="font-family: <?php echo $font_name; ?>;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a tristique tellus, a mattis nulla. Cras eu leo non orci convallis suscipit. Mauris aliquet tempus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 								</div>
 							</div>
 						</div>
