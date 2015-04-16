@@ -157,7 +157,8 @@ function brand_header() {
 							<h1><?php echo $blog_details->blogname; ?> </h1>
 							<p class="secondary">Created by: <a href="<?php echo $creator_url ?>" class="secondary"><?php echo $creator ?></a></p>
 						</div>
-					<?php  } else { ?>
+					<?php  } else {
+						$blog_details = get_blog_details(); ?>
 						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> ">
 							<h1><?php echo $blog_details->blogname; ?> </h1>
 						</div>
