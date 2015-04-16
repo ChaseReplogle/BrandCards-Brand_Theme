@@ -161,7 +161,7 @@ function brand_header() {
 						<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } ?> ">
 							<h1><?php echo $blog_details->blogname; ?> </h1>
 						</div>
-					<?php } ?>
+					<?php }
 
 				endforeach; ?>
 
