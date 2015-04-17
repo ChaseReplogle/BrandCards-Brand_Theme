@@ -92,7 +92,7 @@ function brand_cover() {  ?>
 							<img src="<?php echo $cover_image ?>" class="card-image" />
 						</div>
 					<?php } else { ?>
-						<div class="brand-cover brand-cover-logo" style="background-color: #fff; border: 1px solid #dedede;">
+						<div class="brand-cover brand-cover-logo" style="background-color: #fff; background: <?php echo get_post_meta($detail->ID, 'cover_color', true); ?>; border: 1px solid #dedede;">
 							<div class="card-inner">
 
 							</div>
