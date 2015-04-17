@@ -26,16 +26,14 @@ get_header(); ?>
 								<?php $args = array(
 								  'hide_empty' => 1,
 								  );
-								$post_categories = get_categories($args);
-								print_r($post_categories); ?>
-								<li class="menu-item toggle current-menu-item all"><a href="#">All</a></li>
-								<li class="menu-item toggle"><a href="#">Logos</a></li>
-								<li class="menu-item toggle"><a href="#">Images</a></li>
-								<li class="menu-item toggle"><a href="#">Colors</a></li>
-								<li class="menu-item toggle"><a href="#">Palettes</a></li>
-								<li class="menu-item toggle"><a href="#">Typography</a></li>
-								<li class="menu-item toggle"><a href="#">Video</a></li>
-								<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><li class="menu-item right new-card-link"><a href="/new-card/">+ Add New Card</a></li><?php } ?>
+								$categories = get_categories($args); ?>
+
+									<li class="menu-item toggle current-menu-item all"><a href="#">All</a></li>
+
+								<?php foreach($categories as $category) {
+								    echo '<li class="menu-item toggle"><a href="#">'. $category->name . '</a></li>';  }
+
+									if( current_user_can('editor') || current_user_can('administrator') ) {  ?><li class="menu-item right new-card-link"><a href="/new-card/">+ Add New Card</a></li><?php } ?>
 							</ul>
 						</div>
 					</div>
