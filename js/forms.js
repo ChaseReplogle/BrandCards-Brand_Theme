@@ -19,7 +19,7 @@ $( document ).ready(function() {
 	colorScheme:'light',
 	onChange:function(hsb,hex,rgb,el,bySetColor) {
 		$('.color_picker').css('background','#'+hex);
-		$('.page-template-page-brand-edit .brand-cover-logo').css('background','#'+hex);
+		$('.page-template-page-brand-edit .brand-cover-logo, .page-template-page-brand-details .brand-cover-logo').css('background','#'+hex);
 		// Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
 		if(!bySetColor) $(el).val(hex);
 	}
