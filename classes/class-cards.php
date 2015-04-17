@@ -259,7 +259,7 @@ $post_id = get_the_ID(); ?>
 
 									<?php $counter++;
                   						if ($counter % 5 == 0) {
-                  						echo '<div class="clearfix"></div>';
+                  						echo '<div class="clear"></div>';
                 					} ?>
 
 							  	<?php } ?>
