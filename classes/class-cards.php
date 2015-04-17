@@ -257,6 +257,11 @@ $post_id = get_the_ID(); ?>
 										</ul>
 									</div>
 
+									<?php $counter++;
+                  						if ($counter % 5 == 0) {
+                  						echo '</div><div class="row">';
+                					} ?>
+
 							  	<?php } ?>
 
 						</div>
