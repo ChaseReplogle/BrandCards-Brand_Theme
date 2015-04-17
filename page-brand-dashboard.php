@@ -24,7 +24,8 @@ get_header(); ?>
 						<div class="row">
 							<ul class="menu">
 								<?php $args = array(
-								  'hide_empty' => 1,
+								  'hide_empty' 	=> 1,
+								  'exclude'  	=> 1,
 								  );
 								$categories = get_categories($args); ?>
 
@@ -32,8 +33,8 @@ get_header(); ?>
 
 								<?php foreach($categories as $category) {
 								    echo '<li class="menu-item toggle"><a href="#">'. $category->name . '</a></li>';  }
-
-									if( current_user_can('editor') || current_user_can('administrator') ) {  ?><li class="menu-item right new-card-link"><a href="/new-card/">+ Add New Card</a></li><?php } ?>
+								?>
+								<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><li class="menu-item right new-card-link"><a href="/new-card/">+ Add New Card</a></li><?php } ?>
 							</ul>
 						</div>
 					</div>
