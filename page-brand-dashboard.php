@@ -23,7 +23,10 @@ get_header(); ?>
 					<div class="bar-nav">
 						<div class="row">
 							<ul class="menu">
-								<?php $post_categories = wp_get_post_categories();
+								<?php $args = array(
+								  'hide_empty' => 1,
+								  );
+								$post_categories = get_categories($args);
 								print_r($post_categories); ?>
 								<li class="menu-item toggle current-menu-item all"><a href="#">All</a></li>
 								<li class="menu-item toggle"><a href="#">Logos</a></li>
