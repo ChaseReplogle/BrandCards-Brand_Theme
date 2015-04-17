@@ -198,3 +198,12 @@ function cc_mime_types($mimes) {
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+
+
+
+
+add_filter('gform_notification_format','gf_email_format');
+function gf_email_format(){
+	return 'text/plain';
+}
