@@ -82,13 +82,13 @@ $post_id = get_the_ID(); ?>
 
 				if ($category->slug == 'logo') { ?>
 				<div class="card-link logos logo"  style='background: #<?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
-					<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
+					<a href="<?php the_permalink(); ?>" class="card-link-a">
 						<div class="logo card-inner">
 							<?php // Get Featured Image
 								  // There is jQuery that targets this image by the class and scales it proportionatly for the size of the card.
 							if ( has_post_thumbnail() ) { the_post_thumbnail('web', array( 'class' => 'card-image' )); } ?>
 						</div>
-					<?php if(!$single) { ?></a><?php } ?>
+					</a>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
