@@ -105,14 +105,14 @@ $post_id = get_the_ID(); ?>
 
 				} elseif ($category->slug == 'image') { ?>
 				<div class="card-link images">
-					<a href="<?php the_permalink(); ?>" class="card-link-a">
+						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="image">
 							<?php // Get Featured Image
 								  // There is jQuery that targets this image by the class and scales it proportionatly for the size of the card.
 							if ( has_post_thumbnail() ) {
 								the_post_thumbnail('web', array('class' => 'main-img')); } ?>
 						</div>
-					</a>
+						<?php if(!$single) { ?></a><?php } ?>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
@@ -169,22 +169,22 @@ $post_id = get_the_ID(); ?>
 					  } ?>
 
 					<div class="card-link colors" style="background: <?php /* Echo the color variable we set above */ echo $color; ?>;">
-					<a href="<?php the_permalink(); ?>" class="card-link-a">
-						<div class="color">
+							<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
+							<div class="color">
 
-							<?php // If a value is given, display it on the front end. ?>
-							<div class="color-labels">
-								<h2><?php if($colors[0]) { echo $color_name; } ?></h2>
-								<ul>
-									<li><?php if($colors[2]) { echo "Pantone: $Pantone"; } ?></li>
-									<li><?php if($colors[1]) { echo "HEX: $HEX"; } ?></li>
-									<li><?php if($colors[3]) { echo "RBG: $RGB"; } ?></li>
-									<li><?php if($colors[6]) { echo "CMYK: $CMYK"; } ?></li>
-								</ul>
+								<?php // If a value is given, display it on the front end. ?>
+								<div class="color-labels">
+									<h2><?php if($colors[0]) { echo $color_name; } ?></h2>
+									<ul>
+										<li><?php if($colors[2]) { echo "Pantone: $Pantone"; } ?></li>
+										<li><?php if($colors[1]) { echo "HEX: $HEX"; } ?></li>
+										<li><?php if($colors[3]) { echo "RBG: $RGB"; } ?></li>
+										<li><?php if($colors[6]) { echo "CMYK: $CMYK"; } ?></li>
+									</ul>
+								</div>
+
 							</div>
-
-						</div>
-					</a>
+							<?php if(!$single) { ?></a><?php } ?>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
@@ -205,7 +205,7 @@ $post_id = get_the_ID(); ?>
 
 				} elseif ($category->slug == 'palette') { ?>
 					<div class="card-link palettes">
-					<a href="<?php the_permalink(); ?>" class="card-link-a">
+						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="palette">
 
 							<?php // This custom field is a string created by a list field in Gravity Forms
@@ -260,7 +260,7 @@ $post_id = get_the_ID(); ?>
 							  	<?php } ?>
 
 						</div>
-					</a>
+						<?php if(!$single) { ?></a><?php } ?>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
@@ -299,7 +299,7 @@ $post_id = get_the_ID(); ?>
 						</style>
 
 					<div class="card-link typography">
-					<a href="<?php the_permalink(); ?>" class="card-link-a">
+						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="typography">
 							<div class="row example-typography">
 								<div class="col span_14 left">
@@ -314,7 +314,7 @@ $post_id = get_the_ID(); ?>
 								</div>
 							</div>
 						</div>
-					</a>
+						<?php if(!$single) { ?></a><?php } ?>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
@@ -336,7 +336,7 @@ $post_id = get_the_ID(); ?>
 
 					<?php // The Video class is used by fitvid.js to make the video responsive. ?>
 					<div class="card-link video">
-					<a href="<?php the_permalink(); ?>" class="card-link-a">
+						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 
 						<?php // Check for a vimeo or a youtube id. ?>
 						<?php $vimeo = get_post_meta($post_id, 'card-video-vimeo', true); ?>
@@ -382,7 +382,7 @@ $post_id = get_the_ID(); ?>
 
 					     <?php } ?>
 
-					</a>
+						<?php if(!$single) { ?></a><?php } ?>
 
 					<?php // Add Edit icon and link in bottom corner. ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-card/?id=<?php echo $post_id;?>" class="edit-icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/edit.svg" width="35px" class="branding" /></a><?php } ?>
