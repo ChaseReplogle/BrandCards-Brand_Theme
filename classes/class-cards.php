@@ -81,7 +81,7 @@ $post_id = get_the_ID(); ?>
 				$post_id = get_the_ID();
 
 				if ($category->slug == 'logo') { ?>
-				<div class="card-link logos"  style='background: #<?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
+				<div class="card-link logos logo"  style='background: #<?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
 					<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="logo card-inner">
 							<?php // Get Featured Image
@@ -104,7 +104,7 @@ $post_id = get_the_ID(); ?>
 				$post_id = get_the_ID();
 
 				} elseif ($category->slug == 'image') { ?>
-				<div class="card-link images">
+				<div class="card-link images image">
 						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="image">
 							<?php // Get Featured Image
@@ -168,7 +168,7 @@ $post_id = get_the_ID(); ?>
 							}
 					  } ?>
 
-					<div class="card-link colors" style="background: <?php /* Echo the color variable we set above */ echo $color; ?>;">
+					<div class="card-link colors color" style="background: <?php /* Echo the color variable we set above */ echo $color; ?>;">
 							<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 							<div class="color">
 
@@ -204,7 +204,7 @@ $post_id = get_the_ID(); ?>
 				$post_id = get_the_ID();
 
 				} elseif ($category->slug == 'palette') { ?>
-					<div class="card-link palettes">
+					<div class="card-link palettes palette">
 						<?php if(!$single) { ?><a href="<?php the_permalink(); ?>" class="card-link-a"><?php } ?>
 						<div class="palette">
 
