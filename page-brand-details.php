@@ -18,7 +18,7 @@ get_header(); ?>
 			<div class="row">
 				<?php $blog_details = get_blog_details(); ?>
 				<h1>Success! Your <?php echo $blog_details->blogname; ?> brand has been created.</h1>
-				<p class="secondary">Let's add some additional information about this brand. The information below will help us create a cover to identifiy the brand throughout the site. Let's get started.</p>
+				<p class="secondary">Let's add some additional information about this brand. The information below will help us create a cover to identifiy the brand throughout the site. Let's get started!</p>
 			</div>
 
 			<div class="row gutters large-gutters">
