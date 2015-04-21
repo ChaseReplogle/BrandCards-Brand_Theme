@@ -8,10 +8,9 @@
 	<div class="row gutters">
 		<div class="col span_24 activity">
 
-			<hr>
-
 			<h4>Card Activity</h4>
 
+			<hr>
 
 				<?php $current_id = get_the_ID(); ?>
 
