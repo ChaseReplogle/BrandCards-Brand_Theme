@@ -134,7 +134,7 @@ function activity_post( $entry, $form ) {
  } elseif($form['id'] == 8 ) {
      $content = rgar( $entry, '6' );
  } elseif($form['id'] == 7 ) {
-     $content = rgar( $entry, '10' );
+     $content = rgar( $entry, '9' );
  } elseif($form['id'] == 10 ) {
      $content = rgar( $entry, '6' );
  } elseif($form['id'] == 11 ) {
