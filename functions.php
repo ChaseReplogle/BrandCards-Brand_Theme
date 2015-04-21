@@ -100,6 +100,12 @@ require get_template_directory() . '/classes/class-cards.php';
 require get_template_directory() . '/classes/class-users.php';
 
 /**
+ * Link to Activity file
+ */
+require get_template_directory() . '/classes/class-activity.php';
+
+
+/**
  * Functions to include
  */
 require get_template_directory() . '/functions/function-remove-user.php';
