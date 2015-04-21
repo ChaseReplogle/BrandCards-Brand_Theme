@@ -32,11 +32,11 @@
 						while ( $activity->have_posts() ) { $counter++;
 							$activity->the_post(); ?>
 
-
 								<div class="row activity-item">
 									<?php $author = get_the_author();?>
+									<?php $user_id = $post->post_author; ?>
 									<div class="col span_2"><?php if($counter == 1) { echo 'Created'; } else { echo 'Edited'; } ?></div>
-									<div class="col span_2"><?php switch_to_blog(1); echo get_avatar( $activity->post_author, 40 ); restore_current_blog(); ?></div>
+									<div class="col span_2"><?php switch_to_blog(1); echo get_avatar( $user_id, 40 ); restore_current_blog(); ?></div>
 									<div class="col span_12">
 										<?php echo get_the_author();?> <?php if($counter == 1) { echo 'created'; } else { echo 'edited'; } ?> this card.
 										<br/>
