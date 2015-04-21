@@ -93,6 +93,11 @@
 					</div>
 				</div>
 			</div><!-- .entry-content -->
+
+
+			<?php get_template_part( 'content', 'activity' ); ?>
+
+
 		</div>
 
 
@@ -102,6 +107,7 @@
 
 
 </article><!-- #post-## -->
+
 
 
 <?php delete_modal(); ?>

@@ -100,3 +100,52 @@ function custom_confirmation($confirmation, $form, $lead) {
 
     return $confirmation;
 }
+
+
+
+
+// When a new card is created this function creates a post in the activity post type
+
+// Color Card
+add_filter("gform_after_submission_9", "activity_post", 10, 4);
+
+// Image Card
+add_filter("gform_after_submission_8", "activity_post", 10, 4);
+
+// Logo Card
+add_filter("gform_after_submission_7", "activity_post", 10, 4);
+
+// Palette Card
+add_filter("gform_after_submission_10", "activity_post", 10, 4);
+
+// Typography Card
+add_filter("gform_after_submission_11", "activity_post", 10, 4);
+
+// Video Card
+add_filter("gform_after_submission_12", "activity_post", 10, 4);
+
+function activity_post( $entry, $form ) {
+
+ $created_post_id = $entry['post_id'];
+ $user_ID = get_current_user_id();
+
+ if( $form['id'] == 9 ) {
+     $content = rgar( $entry, '15' );
+ } elseif($form['id'] == 8 ) {
+     $content = rgar( $entry, '6' );
+ }
+
+     // Create post object
+    $new_activity = array(
+      'post_title'    => $created_post_id,
+      'post_status'   => 'publish',
+      'post_author'   => $user_ID,
+      'post_content'  => $content,
+      'post_type'     => 'activity'
+    );
+
+    // Insert the post into the database
+    $activity_id = wp_insert_post( $new_activity );
+    add_post_meta($activity_id, 'card_id', $created_post_id, 0);
+
+}
