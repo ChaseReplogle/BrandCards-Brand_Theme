@@ -67,7 +67,21 @@ $card_id = $_GET[id];
 // When any card is deleted the user is redirected back to the brand dashbaord.
 add_action( 'trashed_post', 'wpse132196_redirect_after_trashing', 10 );
 function wpse132196_redirect_after_trashing() {
-    wp_redirect( home_url('/') );
+
+  $post_id = get_the_ID();
+
+  $deleted_id = get_post_meta($post_id, 'card_id', true);
+
+
+    if ( 'activity' == get_post_type($post_id) ) {
+
+      wp_redirect( home_url('/?p=' . $deleted_id ) );
+
+    } else {
+
+      wp_redirect( home_url('/') );
+    }
+
     exit;
  }
 

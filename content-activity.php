@@ -36,11 +36,12 @@
 									<?php $user_id = $post->post_author; ?>
 									<div class="col span_2 activity-label"><p class="secondary"><?php if($counter == 1) { echo 'Created'; } else { echo 'Edited'; } ?></p></div>
 									<div class="col span_2 activity-avatar"><?php switch_to_blog(1); echo get_avatar( $user_id, 100 ); restore_current_blog(); ?></div>
-									<div class="col span_12 activity-content">
+									<div class="col span_10 activity-content">
 										<p class="secondary activity-content-main"><?php echo get_the_author();?> <?php if($counter == 1) { echo 'created'; } else { echo 'edited'; } ?> this card.</p>
 										<div class="secondary activity-content-note"><?php the_content(); ?></div>
 										</div>
 									<div class="col span_8 activity-content-time"><p class="secondary"><?php the_time('l, F j, Y'); ?> :: <?php the_time('g:i a'); ?></p></div>
+									<div class="col span_2 activity-content-time"><p class="secondary"><a href="<?php echo get_delete_post_link( $post->id ); ?> " class="secondary">Remove</a></p></div>
 								</div>
 
 
