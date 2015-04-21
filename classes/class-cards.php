@@ -81,7 +81,7 @@ $post_id = get_the_ID(); ?>
 				$post_id = get_the_ID();
 
 				if ($category->slug == 'logo') { ?>
-				<div class="card-link logos logo"  style='background: #<?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
+				<div class="card-link logos logo"  style='background: <?php $mykey_values = get_post_custom_values( "card-logo-color" ); foreach ( $mykey_values as $key => $value ) { echo "$value";} ?>;'>
 					<a href="<?php the_permalink(); ?>" class="card-link-a">
 						<div class="logo card-inner">
 							<?php // Get Featured Image

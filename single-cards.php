@@ -10,6 +10,8 @@ get_header(); ?>
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
+			<?php get_template_part( 'content', 'activity' ); ?>
+
 		<?php endwhile; // end of the loop. ?>
 
 		</main><!-- #main -->
