@@ -133,6 +133,14 @@ function activity_post( $entry, $form ) {
      $content = rgar( $entry, '15' );
  } elseif($form['id'] == 8 ) {
      $content = rgar( $entry, '6' );
+ } elseif($form['id'] == 7 ) {
+     $content = rgar( $entry, '10' );
+ } elseif($form['id'] == 10 ) {
+     $content = rgar( $entry, '6' );
+ } elseif($form['id'] == 11 ) {
+     $content = rgar( $entry, '12' );
+ } elseif($form['id'] == 12 ) {
+     $content = rgar( $entry, '10' );
  }
 
      // Create post object
