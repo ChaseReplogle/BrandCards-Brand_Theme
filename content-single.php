@@ -46,10 +46,13 @@
 			<?php card('single'); ?>
 
 			<div class="col span_24 content-column">
+			<?php $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+				  $next     = get_adjacent_post( false, '', false ); ?>
+
 			<nav id="arrow-nav" class="clear" role="navigation">
-				<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">&#8592; Left Arrow</span>' ); ?></div>
-				<div class="nav-label"><span>Keyboard Shortcuts</span></div>
-				<div class="nav-next"><?php next_post_link( '%link', '<span class="meta-nav">Right Arrow &#8594;</span>' ); ?></div>
+				<div class="nav-previous"><?php if( $previous ) { previous_post_link( '%link', '<span class="meta-nav">&#8592; Left Arrow</span>' ); } ?></div>
+				<div class="nav-label"><?php if( $next && $previous ) { ?><span>Keyboard Shortcuts</span><?php } ?></div>
+				<div class="nav-next"><?php if( $next ) { next_post_link( '%link', '<span class="meta-nav">Right Arrow &#8594;</span>' ); } ?></div>
 			</nav>
 
 
