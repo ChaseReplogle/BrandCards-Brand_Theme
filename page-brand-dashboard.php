@@ -58,7 +58,7 @@ get_header(); ?>
 								$cards->the_post();
 								$postid = get_the_ID(); ?>
 
-											<?php card(); ?>
+											<a href="#"><?php card(); ?></a>
 
 							<?php }
 						} else {
