@@ -56,6 +56,7 @@ get_header(); ?>
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
+								print_r($cards);
 
 									?> <a href="<?php the_permalink(); ?>" class="card-link-a">
 
