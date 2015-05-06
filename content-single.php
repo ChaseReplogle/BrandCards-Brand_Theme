@@ -22,13 +22,13 @@
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
-
-									?> <a href="<?php the_permalink(); ?>" class="card-link-a">
+									$postid = get_the_ID(); ?>
+ 									<a href="/?p=<?php echo $postid; ?>" >
 
 										<?php card('sidebar'); ?>
 
-									</a> <?php
-							 }
+									</a>
+							<?php }
 						} else {
 						}
 						wp_reset_postdata(); ?>
