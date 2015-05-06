@@ -13,8 +13,7 @@
 						$args = array (
 							'post_type'             => 'cards',
 						    'orderby' 				=> 'menu_order',
-						    'order' 				=> 'ASC',
-						    'posts_per_page'		=> -1
+						    'order' 				=> 'ASC'
 						);
 
 
@@ -23,13 +22,9 @@
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
-									$postid = get_the_ID(); ?>
- 									<a href="/?p=<?php echo $postid; ?>" class="card-link-a" >
 
-										<?php card('sidebar'); ?>
-
-									</a>
-							<?php }
+									card('sidebar');
+							 }
 						} else {
 						}
 						wp_reset_postdata(); ?>

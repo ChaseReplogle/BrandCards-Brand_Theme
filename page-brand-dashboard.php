@@ -56,11 +56,9 @@ get_header(); ?>
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
-								$postid = get_the_ID(); ?>
 
-											<a href="#"><?php card(); ?></a>
-
-							<?php }
+									card();
+							 }
 						} else {
 						}
 						wp_reset_postdata(); ?>
