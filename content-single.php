@@ -23,7 +23,11 @@
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
 
-									card('sidebar');
+									?> <a href="<?php the_permalink(); ?>" class="card-link-a">
+
+										<?php card('sidebar'); ?>
+
+									</a> <?php
 							 }
 						} else {
 						}

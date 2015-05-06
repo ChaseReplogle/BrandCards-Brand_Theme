@@ -57,7 +57,11 @@ get_header(); ?>
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
 
-									card();
+									?> <a href="<?php the_permalink(); ?>" class="card-link-a">
+
+										<?php card(); ?>
+
+									</a> <?php
 							 }
 						} else {
 						}
