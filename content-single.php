@@ -24,7 +24,7 @@
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
 									$postid = get_the_ID(); ?>
- 									<a href="/?p=<?php echo $postid; ?>" >
+ 									<a href="/?p=<?php echo $postid; ?>" class="card-link-a" >
 
 										<?php card('sidebar'); ?>
 
