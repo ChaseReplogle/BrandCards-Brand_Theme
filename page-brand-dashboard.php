@@ -56,9 +56,9 @@ get_header(); ?>
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
-								print_r($cards);
+								$postid = get_the_ID();
 
-									?> <a href="<?php the_permalink(); ?>" class="card-link-a">
+									?> <a href="<?php the_permalink($postid); ?>" class="card-link-a">
 
 										<?php card(); ?>
 
