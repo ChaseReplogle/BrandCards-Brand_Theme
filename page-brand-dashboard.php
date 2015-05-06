@@ -56,14 +56,13 @@ get_header(); ?>
 						if ( $cards->have_posts() ) {
 							while ( $cards->have_posts() ) {
 								$cards->the_post();
-								$postid = get_the_ID();
-
-									?> <a href="<?php echo get_permalink($postid); ?>" class="card-link-a">
+								$postid = get_the_ID(); ?>
+									<a href="/?p=<?php echo $postid; ?>" >
 
 										<?php card(); ?>
 
-									</a> <?php
-							 }
+									</a>
+							<?php }
 						} else {
 						}
 						wp_reset_postdata(); ?>
