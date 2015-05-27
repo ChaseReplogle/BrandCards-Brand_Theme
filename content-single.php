@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="card-single-wrapper col span_20  ">
-			<?php card('single'); ?>
+			<?php main_card('single'); ?>
 
 			<div class="col span_24 content-column">
 			<?php $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
