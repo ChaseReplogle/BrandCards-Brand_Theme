@@ -177,7 +177,6 @@ function custom_wpadmin_blockusers_init() {
 */
 
 
-
 add_action( 'template_redirect', 'redirect_to_specific_page' );
 
 function redirect_to_specific_page() {
@@ -213,3 +212,10 @@ add_filter('gform_notification_format','gf_email_format');
 function gf_email_format(){
 	return 'text/plain';
 }
+
+
+
+
+@ini_set( 'upload_max_size' , '150M' );
+@ini_set( 'post_max_size', '150M');
+@ini_set( 'max_execution_time', '300' );
