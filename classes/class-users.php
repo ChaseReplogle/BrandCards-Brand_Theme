@@ -217,7 +217,7 @@ function user_sidebar() { ?>
 	<div class="invites-user">
 
 		<?php // Slightly different from above, this gets posts from the invites cusom post type that is created when an invite is sent.
-		$invites = get_posts( array('post_type' => 'invites', 'posts_per_page', 50 ) );
+		$invites = get_posts( array('post_type' => 'invites', 'posts_per_page' => -1 ) );
 		if($invites) { ?>
 
 			<p class="user-title secondary row-border-bottom">Invited</p>
