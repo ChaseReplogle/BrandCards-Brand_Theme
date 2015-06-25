@@ -380,7 +380,7 @@ $post_id = get_the_ID(); ?>
 
 					        	<?php // Get a thumbnail image from Youtube if there is a youtube ID.
 					        	if(!empty($youtube)) {
-					        		$thumb1 = "http://img.youtube.com/vi/$youtube/maxresdefault.jpg"; ?>
+					        		$thumb1 = "http://img.youtube.com/vi/$youtube/hqdefault.jpg"; ?>
 					        		<img class="youtube main-img" src="<?php echo $thumb1 ?>" />
 					        	<?php } ?>
 					        </div>
