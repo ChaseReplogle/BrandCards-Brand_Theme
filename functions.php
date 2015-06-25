@@ -177,6 +177,8 @@ function custom_wpadmin_blockusers_init() {
 */
 
 
+
+/*
 add_action( 'template_redirect', 'redirect_to_specific_page' );
 
 function redirect_to_specific_page() {
@@ -187,7 +189,7 @@ wp_redirect( network_site_url(), 301 );
   exit;
     }
 }
-
+*/
 
 
 
