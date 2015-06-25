@@ -6,11 +6,11 @@
 
 
 	<div class="row gutters">
+		<hr>
+		<h4><a href="#" class="activity-toggle">View Card Activity</a></h4>
+
 		<div class="col span_24 activity">
 
-			<h4>Card Activity</h4>
-
-			<hr>
 
 				<?php $current_id = get_the_ID(); ?>
 

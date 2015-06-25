@@ -271,3 +271,17 @@ $(document).ready(function() {
     });
 
 });
+
+
+
+
+
+$(document).ready(function() {
+	$('.activity').css('display', 'none');
+    $('a.activity-toggle').click(function( event ) {
+  		event.preventDefault();
+        $('.activity').slideToggle();
+        $('.activity').css('display', 'block');
+    });
+
+});

@@ -74,7 +74,9 @@
 					<div class="col span_15 card-content">
 						<?php $content = get_the_content(); ?>
 
-						<div class="card-meta <?php if( empty($content) ) { echo 'full-width'; }?>">
+						<?php the_content(); ?>
+
+						<div class="card-meta full-width">
 							<div class="meta-item">
 								<span class="label">Created:</span>
 								<?php the_date(); ?>
@@ -88,7 +90,7 @@
 								<?php $category = get_the_category(); $firstCategory = $category[0]->cat_name; echo $firstCategory;?>
 							</div>
 						</div>
-						<?php the_content(); ?>
+
 					</div>
 
 					<div class="col span_9">
