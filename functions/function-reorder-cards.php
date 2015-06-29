@@ -7,7 +7,7 @@ function my_save_item_order() {
     global $wpdb;
 
     $order = explode(',', $_POST['order']);
-    $counter = 0;
+    $counter = 999;
     $post_type = 'cards';
     foreach ($order as $item_id) {
         // Update post 37
@@ -20,7 +20,7 @@ function my_save_item_order() {
 		// Update the post into the database
 		  wp_update_post( $menu_update );
 
-  		$counter++;
+  		$counter--;
     }
     die(1);
 }

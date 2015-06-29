@@ -46,7 +46,7 @@ get_header(); ?>
 						$args = array (
 							'post_type'             => 'cards',
 						    'orderby' 				=> 'menu_order',
-						    'order' 				=> 'ASC',
+						    'order' 				=> 'DESC',
 						    'posts_per_page'		=> -1
 						);
 
