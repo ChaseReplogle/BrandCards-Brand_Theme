@@ -44,6 +44,20 @@
 		</div>
 
 		<div class="card-single-wrapper col span_20  ">
+
+			<header class="entry-header clear">
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+				<div class="single-card-links">
+					<ul>
+						<?php $post_id = get_the_ID(); ?>
+						<li><a href="#card-delete" rel="leanModal">Delete</a></li>
+						<li><a href="/edit-card/?id=<?php echo $post_id;?>">Edit</a></li>
+					</ul>
+				</div>
+				<?php } ?>
+			</header><!-- .entry-header -->
+
 			<?php main_card('single'); ?>
 
 			<div class="col span_24 content-column">
@@ -58,18 +72,6 @@
 
 
 			<div class="entry-content">
-				<header class="entry-header clear">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
-					<div class="single-card-links">
-						<ul>
-							<?php $post_id = get_the_ID(); ?>
-							<li><a href="#card-delete" rel="leanModal">Delete</a></li>
-							<li><a href="/edit-card/?id=<?php echo $post_id;?>">Edit</a></li>
-						</ul>
-					</div>
-					<?php } ?>
-				</header><!-- .entry-header -->
 
 				<div class="row gutters">
 					<div class="col span_15 card-content">
