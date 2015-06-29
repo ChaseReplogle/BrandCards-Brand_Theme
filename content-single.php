@@ -44,6 +44,8 @@
 		</div>
 
 		<div class="card-single-wrapper col span_20  ">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
 			<?php main_card('single'); ?>
 
 			<div class="col span_24 content-column">
@@ -59,7 +61,6 @@
 
 			<div class="entry-content">
 				<header class="entry-header clear">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 					<div class="single-card-links">
 						<ul>
