@@ -307,15 +307,11 @@ $post_id = get_the_ID(); ?>
 						<a href="<?php the_permalink(); ?>" class="card-link-a">
 						<div class="typography">
 							<div class="row example-typography">
-								<div class="col span_14 left">
+								<div class="col span_24 left">
 									<?php // Applies the font name to a style element for each text item. ?>
 									<h2 style="font-family: <?php echo $font_name; ?>;">Aa</h2>
 									<h4 style="font-family: <?php echo $font_name; ?>;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</h4>
 									<h4 style="font-family: <?php echo $font_name; ?>;">abcdefghijklmnopqrstuvwxwz</h4>
-								</div>
-								<div class="col span_10 right">
-									<h3 style="font-family: <?php echo $font_name; ?>;"><?php echo get_post_meta($post_id, 'card-font-name', true); ?></h3>
-									<p style="font-family: <?php echo $font_name; ?>;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a tristique tellus, a mattis nulla. Cras eu leo non orci convallis suscipit. Mauris aliquet tempus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 								</div>
 							</div>
 						</div>
@@ -659,15 +655,11 @@ $post_id = get_the_ID(); ?>
 					<div class="card-link typography">
 						<div class="typography">
 							<div class="row example-typography">
-								<div class="col span_14 left">
+								<div class="col span_24 left">
 									<?php // Applies the font name to a style element for each text item. ?>
 									<h2 style="font-family: <?php echo $font_name; ?>;">Aa</h2>
 									<h4 style="font-family: <?php echo $font_name; ?>;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</h4>
 									<h4 style="font-family: <?php echo $font_name; ?>;">abcdefghijklmnopqrstuvwxwz</h4>
-								</div>
-								<div class="col span_10 right">
-									<h3 style="font-family: <?php echo $font_name; ?>;"><?php echo get_post_meta($post_id, 'card-font-name', true); ?></h3>
-									<p style="font-family: <?php echo $font_name; ?>;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a tristique tellus, a mattis nulla. Cras eu leo non orci convallis suscipit. Mauris aliquet tempus quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 								</div>
 							</div>
 						</div>
