@@ -775,10 +775,13 @@ function related_files() {
 			<h3>Download Related Files</h3>
 			<form class="form-horizontal" action="<?php echo get_template_directory_uri(); ?>/functions/function-download.php" method="get">
 
-				<input type="checkbox" id="selecct_all" name="select_all" value="select_all">
+			<?php if (count($files) > 1) { ?>
+    			<input type="checkbox" id="selecct_all" name="select_all" value="select_all">
 				<label class="checkbox" for="select_all">Select All Files</label>
 
 				<hr>
+			<?php } ?>
+
 
 			<?php // build counter
 			$i = 0;
