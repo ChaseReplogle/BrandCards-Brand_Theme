@@ -63,12 +63,6 @@ $(document).ready( function() {
 
 
 
-	var	card = $(".card-single-wrapper").height();
-
-	$(".card-sidebar").attr('style','height: '+card+'px; overflow-y: scroll;');
-
-
-
 
 	function center_image() {
 		$( ".card-image" ).each(function() {
@@ -289,3 +283,9 @@ $(document).ready(function() {
     });
 
 });
+
+
+
+
+	var	card = $(".card-single-wrapper .card-link ").height();
+	$(".card-sidebar").attr('style','height: '+card+'px; overflow-y: scroll;');
