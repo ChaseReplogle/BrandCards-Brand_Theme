@@ -65,7 +65,7 @@ $(document).ready( function() {
 
 	var	card = $(".card-single-wrapper").height();
 
-	$(".card-sidebar").attr('style','height: '+card+'px; overflow: scroll;');
+	$(".card-sidebar").attr('style','height: '+card+'px; overflow-y: scroll;');
 
 
 
