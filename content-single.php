@@ -8,6 +8,17 @@
 
 	<div class="row gutters">
 		<div class="col span_4 card-sidebar">
+
+			<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+			<div class="new-card">
+				<div class="card-link-wrapper">
+					<div class="card-link">
+						<a href="/new-card">Add New Card</a>
+					</div>
+				</div>
+			</div>
+			<?php } ?>
+
 			<ul class="cards-grid" >
 						<?php // WP_Query arguments
 						$args = array (
@@ -30,17 +41,6 @@
 						}
 						wp_reset_postdata(); ?>
 					</ul>
-
-
-					<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
-					<div class="new-card">
-						<div class="card-link-wrapper">
-							<div class="card-link">
-								<a href="/new-card">Add New Card</a>
-							</div>
-						</div>
-					</div>
-					<?php } ?>
 		</div>
 
 		<div class="card-single-wrapper col span_20  ">
