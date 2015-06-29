@@ -288,4 +288,5 @@ $(document).ready(function() {
 
 
 	var	card = $(".card-single-wrapper .card-link ").height();
-	$(".card-sidebar").attr('style','height: '+card+'px; overflow-y: scroll;');
+	var cardheight = (card+35);
+	$(".card-sidebar").attr('style','height: '+cardheight+'px; overflow-y: scroll;');
