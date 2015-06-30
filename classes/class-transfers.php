@@ -56,6 +56,7 @@ add_action( 'init', 'transfers', 0 );
  */
 function transfer_notification_bar() {
 
+if( current_user_can('editor') || current_user_can('administrator') ) {
 	// Query the transfer posty type and display only 1 post.
 	$args = array (
 		'post_type'             => 'transfers',
@@ -95,5 +96,5 @@ function transfer_notification_bar() {
 	}
 
 	wp_reset_postdata();
-
+}
 }

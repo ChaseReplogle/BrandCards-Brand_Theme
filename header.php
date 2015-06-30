@@ -48,6 +48,7 @@
 			</header>
 
 
+	<?php transfer_notification_bar(); ?>
 
 	<?php brand_header() ?>
 
