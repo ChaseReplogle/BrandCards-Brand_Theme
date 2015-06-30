@@ -26,6 +26,7 @@ get_header(); ?>
 								<?php $args = array(
 								  'hide_empty' 	=> 1,
 								  'exclude'  	=> 1,
+								  'orderby'     => 'id',
 								  );
 								$categories = get_categories($args); ?>
 
