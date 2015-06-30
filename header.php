@@ -47,8 +47,9 @@
 				 </div>
 			</header>
 
-
+<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 	<?php transfer_notification_bar(); ?>
+<?php } ?>
 
 	<?php brand_header() ?>
 
