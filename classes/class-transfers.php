@@ -84,7 +84,7 @@ if( current_user_can('editor') || current_user_can('administrator') ) {
 
 						<?php // Create link that delets the transfer post. This post is check and confirmed to exist before transfer is executed. ?>
 						<div class="col span_4">
-							<a href="<?php echo get_delete_post_link( $post_id ); ?>">Revoke</a>
+							<a href="<?php echo get_delete_post_link( $post_id ); ?>">Revoke Transfer</a>
 						</div>
 
 					</div>
