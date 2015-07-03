@@ -19,6 +19,31 @@
 
 <?php gravity_form_enqueue_scripts( 7, true ); ?>
 <?php wp_head(); ?>
+
+<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
+	$details = get_posts( $args );
+
+		foreach ( $details as $detail ) :
+			$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
+			var_dump($privacy);
+
+			$location = network_site_url();
+			var_dump($location);
+
+				if (!is_user_logged_in() && $privacy === "Private") {
+
+				  	// redirect after header definitions - cannot use wp_redirect($location);
+					?>
+					   <script type="text/javascript">
+					   <!--
+					      window.location= <?php echo "'" . $location . "'"; ?>;
+					   //-->
+					   </script>
+					<?php
+				}
+
+		endforeach; ?>
+
 </head>
 
 <body <?php body_class(); ?>>

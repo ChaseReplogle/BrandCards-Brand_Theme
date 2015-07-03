@@ -177,7 +177,7 @@ function custom_wpadmin_blockusers_init() {
 */
 
 
-
+/*
 
 add_action( 'template_redirect', 'redirect_to_specific_page' );
 
@@ -188,19 +188,27 @@ function redirect_to_specific_page() {
 
 		foreach ( $details as $detail ) :
 			$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
-
+			var_dump($privacy);
 
 			$location = network_site_url();
-
+			var_dump($location);
 
 				if (!is_user_logged_in() && $privacy === "Private") {
 
-				  	header("Location: http://www.example.com/");
+				  	// redirect after header definitions - cannot use wp_redirect($location);
+					?>
+					   <script type="text/javascript">
+					   <!--
+					      window.location= <?php echo "'" . $location . "'"; ?>;
+					   //-->
+					   </script>
+					<?php
+				}
 
 		endforeach;
 
 }
-
+*/
 
 
 
