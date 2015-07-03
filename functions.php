@@ -184,18 +184,20 @@ add_action( 'template_redirect', 'redirect_to_specific_page' );
 function redirect_to_specific_page() {
 
 	$args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
-		$details = get_posts( $args );
+	$details = get_posts( $args );
+
 		foreach ( $details as $detail ) :
 			$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
-		var_dump($privacy);
-   		endforeach;
+			var_dump($privacy);
 
-if (!is_user_logged_in() && $privacy === "Private") {
 
-wp_redirect( network_site_url(), 301 );
-  exit;
-    }
+				if (!is_user_logged_in() && $privacy === "Private") {
 
+					wp_redirect( network_site_url(), 301 );
+				  	exit;
+				}
+
+		endforeach;
 
 }
 
