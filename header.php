@@ -20,6 +20,11 @@
 <?php gravity_form_enqueue_scripts( 7, true ); ?>
 <?php wp_head(); ?>
 
+</head>
+
+<body <?php body_class(); ?>>
+<div id="page" class="hfeed site">
+
 <?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
 	$details = get_posts( $args );
 
@@ -43,13 +48,6 @@
 				}
 
 		endforeach; ?>
-
-</head>
-
-<body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-
-
 
 
 
