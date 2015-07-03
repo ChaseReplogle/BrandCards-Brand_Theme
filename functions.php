@@ -186,7 +186,7 @@ function redirect_to_specific_page() {
 	$args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
 		$details = get_posts( $args );
 		$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
-		var_dump($privacy);
+		echo $privacy;
 
 if (!is_user_logged_in() && $privacy === "Private") {
 
