@@ -187,7 +187,7 @@ function redirect_to_specific_page() {
 		$details = get_posts( $args );
 		$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
 
-if (!is_user_logged_in() && $privacy == "Private") {
+if (!is_user_logged_in() && $privacy === "Private") {
 
 wp_redirect( network_site_url(), 301 );
   exit;
