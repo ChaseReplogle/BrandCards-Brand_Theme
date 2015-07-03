@@ -33,7 +33,7 @@
 
 			$location = network_site_url();
 
-				if ($privacy === "Private") {
+				if (!is_user_logged_in() && $privacy === "Private") {
 
 				  	// redirect after header definitions - cannot use wp_redirect($location);
 					?>
