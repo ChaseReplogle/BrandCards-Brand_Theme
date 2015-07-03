@@ -178,18 +178,22 @@ function custom_wpadmin_blockusers_init() {
 
 
 
-/*
+
 add_action( 'template_redirect', 'redirect_to_specific_page' );
 
 function redirect_to_specific_page() {
 
-if (!is_user_logged_in()) {
+	$args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
+		$details = get_posts( $args );
+		$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
+
+if (!is_user_logged_in() && $privacy == "Private") {
 
 wp_redirect( network_site_url(), 301 );
   exit;
     }
 }
-*/
+
 
 
 
