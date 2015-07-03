@@ -193,7 +193,7 @@ function redirect_to_specific_page() {
 				if (!is_user_logged_in() && $privacy === "Private") {
 
 					$location = network_site_url();
-					echo $location;
+					var_dump($location);
 
 				  	// redirect after header definitions - cannot use wp_redirect($location);
 					?>
