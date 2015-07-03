@@ -190,7 +190,20 @@ function redirect_to_specific_page() {
 			$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
 			var_dump($privacy);
 
+				if (!is_user_logged_in() && $privacy === "Private") {
 
+					$location = network_site_url();
+					echo $location;
+
+				  	// redirect after header definitions - cannot use wp_redirect($location);
+					?>
+					   <script type="text/javascript">
+					   <!--
+					      window.location= <?php echo "'" . $location . "'"; ?>;
+					   //-->
+					   </script>
+					<?php
+				}
 
 		endforeach;
 
