@@ -188,10 +188,10 @@ function redirect_to_specific_page() {
 
 		foreach ( $details as $detail ) :
 			$privacy = get_post_meta($detail->ID, 'brand_privacy', true);
-			var_dump($privacy);
+
 
 			$location = network_site_url();
-			var_dump($location);
+
 
 				if (!is_user_logged_in() && $privacy === "Private") {
 
