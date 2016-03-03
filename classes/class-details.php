@@ -147,6 +147,7 @@ function brand_header() {
 				<div class="col span_15 brand-dash-header_text <?php if ( is_front_page() ) { echo 'brand-dash-header_text-main'; } if($details) { echo ' creator-included'; } ?>">
 					<?php // Get Blog Details and display the brands name
 					$blog_details = get_blog_details(); ?>
+
 					<h1><?php echo $blog_details->blogname; ?> </h1>
 
 					<?php foreach ( $details as $detail ) :
@@ -158,6 +159,21 @@ function brand_header() {
 						<?php  }
 
 					endforeach; ?>
+
+					<p class="secondary">
+						<?php // Editors and Administrators can edit the details of a brand
+						if( current_user_can('editor') || current_user_can('administrator') ) {  ?><a href="/edit-details/" class="secondary"><?php } ?>
+
+							<?php
+								foreach ( $details as $detail ) :
+									$visibility = get_post_meta($detail->ID, 'brand_privacy', true);
+									if ($visibility == 'Protected') { switch_to_blog(1); ?> <img src="<?php bloginfo('stylesheet_directory'); ?>/images/public.png"> Public <?php restore_current_blog(); }
+									if ($visibility == 'Private') { switch_to_blog(1); ?> <img src="<?php bloginfo('stylesheet_directory'); ?>/images/private.png"> Private <?php restore_current_blog(); }
+								endforeach;
+							?>
+
+						<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?></a><?php } ?>
+					</p>
 
 				</div>
 
