@@ -46,13 +46,8 @@ function user_sidebar() { ?>
 
 					if( current_user_can('administrator') ) {  ?>
 						<p class="username"><a href="#"><?php echo  $user->first_name . ' ' . $user->last_name; ?></a></p>
-						<p class="email email-toggle"><?php echo  $user->user_email; ?></p>
-						<div class="user-links">
-							<p>
-								<!-- Link to transfer ownership -->
-								<a href="/transfer-ownership" class="transfer-link">Transfer Ownership</a>
-							</p>
-						</div>
+						<p class="email"><?php echo  $user->user_email; ?></p>
+						<p class="transfer_link"><a href="/transfer-ownership">Transfer Ownership</a></p>
 
 					<?php // All other users will just see the owners name and email
 
