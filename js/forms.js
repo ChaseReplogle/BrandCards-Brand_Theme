@@ -290,3 +290,11 @@ $(document).ready(function() {
 	var	card = $(".card-single-wrapper .card-link ").height();
 	var cardheight = (card+35);
 	$(".card-sidebar").attr('style','height: '+cardheight+'px; overflow-y: scroll;');
+
+
+
+$(document).ready(function() {
+	$("input.public_link_input").click(function () {
+  		 $(this).select();
+	});
+});

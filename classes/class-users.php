@@ -257,6 +257,33 @@ function user_sidebar() { ?>
 		<?php } // End of foreach loop ?>
 	</div>
 
-<?php
 
-}
+
+
+	<?php // Public Link Widget ?>
+	<div class="public_link_widget">
+		<?php $blog_details = get_blog_details(); ?>
+		<?php $args = array( 'posts_per_page' => 1, 'post_type' => 'brand_details' );
+			  $details = get_posts( $args ); ?>
+
+		<?php foreach ( $details as $detail ) :
+			$visibility = get_post_meta($detail->ID, 'brand_privacy', true);
+
+			if ($visibility == 'Protected') { switch_to_blog(1); ?>
+
+			<p class="user-title secondary row-border-bottom">Public Link <img src="<?php bloginfo('stylesheet_directory'); ?>/images/public.png"></p>
+			<input type="text" class="public_link_input" value="<?php echo $blog_details->domain; ?>">
+			<p>Anyone with the link above can view and download files. <i>Note: only editors and the owner can make changes.</i></p>
+
+			<?php restore_current_blog(); }
+
+		endforeach; ?>
+	</div>
+
+
+
+<?php }
+
+
+
+
