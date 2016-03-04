@@ -273,7 +273,7 @@ function user_sidebar() { ?>
 
 			<p class="user-title secondary row-border-bottom">Public Link <img src="<?php bloginfo('stylesheet_directory'); ?>/images/public.png"></p>
 			<input type="text" class="public_link_input" value="<?php echo $blog_details->domain; ?>">
-			<p>Anyone with the link above can view and download files. <i>Note: only editors and the owner can make changes.</i></p>
+			<p class="note">Anyone with the link above can view and download files. <i>Note: only editors and the owner can make changes.</i></p>
 
 			<?php restore_current_blog(); }
 
