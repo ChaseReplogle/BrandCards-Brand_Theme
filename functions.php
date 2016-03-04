@@ -40,7 +40,7 @@ add_action( 'after_setup_theme', 'brand_setup' );
 function brand_scripts() {
 	wp_enqueue_style( 'brand-style', get_stylesheet_uri() );
 	// This link shares the stylesheet from the main site for these inner pages.
-	$cache_buster = date("YmdHi", filemtime( network_home_url() . '/wp-content/themes/brandcards/css/main.css'));
+	$cache_buster = date("YmdHis", filemtime( network_home_url() . '/wp-content/themes/brandcards/css/main.css'));
 	wp_enqueue_style( 'main', network_home_url() . '/wp-content/themes/brandcards/css/main.css', array(), $cache_buster, 'all' );
 
 	wp_enqueue_script( 'brand-jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js', array(), '1', true );
