@@ -20,7 +20,9 @@
 					    <h2>Tip: Transfering Ownership</h2>
 					    <hr>
 					    <p>You can easily transfer a brand by providing the email address of the person you wish to take ownership. If the new owner does not have a paid BrandCards account, they will be given an opportunity to purchase one.</p>
+					    <?php if( current_user_can('administrator') ) {  ?>
 					    <p><a href="/transfer-ownership">Transfer Ownership Now</a></p>
+					    <?php } ?>
 					</div>
 				</li>
 			</ul>
@@ -50,8 +52,10 @@
 		    <hr>
 		    <p><strong>Public brands</strong> can be shared using the url. Anyone with the url will be able to view cards and download files—they will not be able to make changes. <i>Note: Brands are public by default.</i></p>
 		    <hr>
-		    <p><strong>Private brands</strong> are restricted to those you have invted as and editor or subscriber. No one else will be able to view cards or download files.</p>
-		    <p><a href="/edit-details">Edit This Brand's Visibility</a></p>
+		    <p><strong>Private brands</strong> are restricted to those you have been invited as an editor or subscriber. No one else will be able to view cards or download files.</p>
+		    <?php if( current_user_can('administrator') ) {  ?>
+		    	<p><a href="/edit-details">Edit This Brand's Visibility</a></p>
+		    <?php } ?>
 		</div>
 	</div>
 
