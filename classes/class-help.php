@@ -48,9 +48,9 @@
 		<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_privacy.png">
 		    <h2>Visibility of Your Brand</h2>
 		    <hr>
-		    <p><strong>Public brands</strong> can be shared publically with the url. Users will need to be invited to edit the brand, but anyone can view cards and download files.</p>
+		    <p><strong>Public brands</strong> can be shared using the url. Anyone with the url will be able to view cards and download files—they will not be able to make changes. <i>Note: Brands are public by default.</i></p>
 		    <hr>
-		    <p><strong>Private brands</strong> are restricted completely to those you have invted. No one else will be able to view cards or download files.</p>
+		    <p><strong>Private brands</strong> are restricted to those you have invted as and editor or subscriber. No one else will be able to view cards or download files.</p>
 		    <p><a href="/edit-details">Edit This Brand's Visibility</a></p>
 		</div>
 	</div>
