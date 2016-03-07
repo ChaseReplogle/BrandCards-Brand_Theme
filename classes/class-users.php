@@ -26,7 +26,7 @@ function user_sidebar() { ?>
 		$users = get_users( array('role' => 'administrator' ) );
 		if($users) { ?>
 
-			<p class="user-title secondary row-border-bottom">Owner</p>
+			<p class="user-title secondary row-border-bottom">Owner<?php help_owner(); ?></p>
 
 		<?php }
 
@@ -271,8 +271,10 @@ function user_sidebar() { ?>
 
 			if ($visibility == 'Protected') { switch_to_blog(1); ?>
 
-			<p class="user-title secondary row-border-bottom">Public Link <img src="<?php bloginfo('stylesheet_directory'); ?>/images/public.png"></p>
+			<p class="user-title secondary row-border-bottom">Public Link<?php help_publicLink(); ?></p>
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/public.png" class="lock_icon">
 			<input type="text" class="public_link_input" value="<?php echo $blog_details->domain; ?>">
+
 			<p class="note">Anyone with the link above can view and download files. <i>Note: only editors and the owner can make changes.</i></p>
 
 			<?php restore_current_blog(); }

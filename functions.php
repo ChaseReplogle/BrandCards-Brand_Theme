@@ -48,6 +48,7 @@ function brand_scripts() {
 	wp_enqueue_script( 'brand-forms', get_template_directory_uri() . '/js/forms.js', array(), '1', true );
 	wp_enqueue_script( 'brand-modal', get_template_directory_uri() . '/js/modal.js', array(), '1', true );
 	wp_enqueue_script( 'brand-fitvid', get_template_directory_uri() . '/js/fitvid.js', array(), '1', true );
+	wp_enqueue_script( 'brand-slider', get_template_directory_uri() . '/js/slider.js', array(), '1', true );
 	wp_enqueue_script( 'brand-sortable', get_template_directory_uri() . '/js/sortable.js', array(), '1', true );
 
 
@@ -105,6 +106,12 @@ require get_template_directory() . '/classes/class-users.php';
  * Link to Activity file
  */
 require get_template_directory() . '/classes/class-activity.php';
+
+/**
+ * Link to Activity file
+ */
+require get_template_directory() . '/classes/class-help.php';
+
 
 
 /**
