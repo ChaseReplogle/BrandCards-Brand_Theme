@@ -10,7 +10,7 @@
 						<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_owner.png">
 					    <h2>Tip: The Owner's Role</h2>
 					    <hr>
-					    <p>The owner is responsible for managing the brand's account. In order to own the brand, a user must have a paid subscription. At anytime ownership of the brand can be transfered to a new owner.</p>
+					    <p>The owner of a brand is responsible for managing the brand's account. In order to own the brand, a user must have a paid subscription. At anytime ownership of the brand can be transfered to a new owner.</p>
 					    <p><a href="#">Learn More</a></p>
 					</div>
 				</li>
@@ -19,7 +19,7 @@
 						<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_transfer.png">
 					    <h2>Tip: Transfering Ownership</h2>
 					    <hr>
-					    <p>You can easily transfer a file simply by providing the email address of the person you wish to take over ownership. If the new owner does not have a paid BrandCards account, they will be given an opportunity to purchase one.</p>
+					    <p>You can easily transfer a brand by providing the email address of the person you wish to take ownership. If the new owner does not have a paid BrandCards account, they will be given an opportunity to purchase one.</p>
 					    <p><a href="/transfer-ownership">Transfer Ownership Now</a></p>
 					</div>
 				</li>
