@@ -51,7 +51,7 @@
 		    <p><strong>Public brands</strong> can be shared publically with the url. Users will need to be invited to edit the brand, but anyone can view cards and download files.</p>
 		    <hr>
 		    <p><strong>Private brands</strong> are restricted completely to those you have invted. No one else will be able to view cards or download files.</p>
-		    <p><a href="#">Edit This Brand's Visibility</a></p>
+		    <p><a href="/edit-details">Edit This Brand's Visibility</a></p>
 		</div>
 	</div>
 
