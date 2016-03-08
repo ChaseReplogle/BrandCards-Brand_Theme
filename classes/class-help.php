@@ -19,7 +19,7 @@
 						<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_transfer.png">
 					    <h2>Tip: Transfering Ownership</h2>
 					    <hr>
-					    <p>You can easily transfer a brand by providing the email address of the person you wish to take ownership. If the new owner does not have a paid BrandCards account, they will be given an opportunity to purchase one.</p>
+					    <p>The current owner of a brand can transfer ownership by providing the email address of the person they wish to take over. If the new owner does not have a paid BrandCards account, they will be given an opportunity to purchase one.</p>
 					    <?php if( current_user_can('administrator') ) {  ?>
 					    <p><a href="/transfer-ownership">Transfer Ownership Now</a></p>
 					    <?php } ?>
