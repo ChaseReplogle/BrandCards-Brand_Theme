@@ -60,3 +60,46 @@
 	</div>
 
 <?php } ?>
+
+
+
+
+<?php function help_download() { ?>
+
+	<a href="#help_download" rel="leanModal" class="help_icon"><img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icon.png"></a>
+
+	<div class="modal help_modal" id="help_download">
+		<div class="my-slider help_download">
+			<ul>
+				<li>
+					<div class="header">
+						<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_download.png">
+					    <h2>Tip: Downloading Files</h2>
+					    <hr>
+					    <p>Related files is a great way to pass on variations of a logo or alternative file formats. Understanding file formats is critical to using the brand well. Below is a link to a comprensive glossary of file formats.</p>
+					    <p><a href="/file-formats" class="button button-block button-primary">Glossary of File Formats</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="header">
+						<img src="<?php network_site_url(); ?>/wp-content/themes/brandcards/images/help_icons/help_swatch.png">
+					    <h2>Tip: Swatch Files</h2>
+					    <hr>
+					    <p>When you are viewing a color palette card, you will be given the option to download an Adobe Color Swatch Files. .ase files can be easily imported in Adobe software such as Photoshop and Illustrator.</p>
+					    <?php if( current_user_can('administrator') ) {  ?>
+					    <p><a href="/ase">Learn More About .ase Files</a></p>
+					    <?php } ?>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$('.my-slider.help_download').unslider();
+
+			$('#help_download .unslider-arrow').appendTo('#help_download .unslider-nav');
+		});
+	</script>
+<?php } ?>

@@ -772,7 +772,7 @@ function related_files() {
 	if($files) { ?>
 
 		<div class="card-files">
-			<h3>Download Related Files</h3>
+			<h3>Download Related Files<?php help_download(); ?></h3>
 			<form class="form-horizontal" action="<?php echo get_template_directory_uri(); ?>/functions/function-download.php" method="get">
 
 			<?php if (count($files) > 1) { ?>
@@ -900,7 +900,7 @@ function related_files() {
 
 	    // Pass this array in a hidden input. ?>
 	    <div class="card-files">
-			<h3>Download Related Files</h3>
+			<h3>Download Related Files<?php help_download(); ?></h3>
 			<form class="form-horizontal" action="<?php echo get_template_directory_uri(); ?>/functions/function-download-palette.php" method="get">
 
 			<?php // the code below creates the name that will be passed on for the .zip file. (exampel: BrandName_Card-Name.zip)
