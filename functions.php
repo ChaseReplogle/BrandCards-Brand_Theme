@@ -230,6 +230,7 @@ function redirect_to_specific_page() {
 // Allows Wordpress to acces .svg files
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
+  $mimes['psd'] = 'image/vnd.adobe.photoshop';
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
