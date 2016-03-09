@@ -232,6 +232,9 @@ function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   $mimes['psd'] = 'image/vnd.adobe.photoshop';
   $mimes['ai'] = 'application/illustrator';
+  $mimes['ttf'] = 'application/octet-stream';
+  $mimes['otf'] = 'application/octet-stream';
+  $mimes['wof'] = 'application/octet-stream';
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
