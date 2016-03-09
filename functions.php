@@ -231,6 +231,7 @@ function redirect_to_specific_page() {
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   $mimes['psd'] = 'image/vnd.adobe.photoshop';
+  $mimes['ai'] = 'application/illustrator';
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
