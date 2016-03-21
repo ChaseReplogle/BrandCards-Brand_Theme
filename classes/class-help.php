@@ -77,7 +77,7 @@
 					    <h2>Tip: Downloading Files</h2>
 					    <hr>
 					    <p>Related files is a great way to pass on variations of a logo or alternative file formats. Understanding file formats is critical to using the brand well. Below is a link to a comprensive glossary of file formats.</p>
-					    <p><a href="/file-formats" class="button button-block button-primary">Glossary of File Formats</a></p>
+					    <p><a href="http://getbrandcards.com/category/file-formats/" class="button button-block button-primary">Glossary of File Formats</a></p>
 					</div>
 				</li>
 				<li>
