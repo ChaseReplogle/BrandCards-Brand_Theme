@@ -235,6 +235,7 @@ function cc_mime_types($mimes) {
   $mimes['ttf'] = 'application/octet-stream';
   $mimes['otf'] = 'application/octet-stream';
   $mimes['wof'] = 'application/octet-stream';
+  $mimes['eps'] = 'application/postscript';
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
