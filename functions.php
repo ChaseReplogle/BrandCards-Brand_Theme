@@ -239,6 +239,7 @@ function cc_mime_types($mimes) {
   $mimes['eot'] = 'application/octet-stream';
   $mimes['woff'] = 'application/octet-stream';
   $mimes['eps'] = 'application/postscript';
+  $memes['sketch'] = 'application/octet-stream';
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
