@@ -231,7 +231,7 @@ function redirect_to_specific_page() {
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   $mimes['psd'] = 'image/vnd.adobe.photoshop';
-  $mimes['ai'] = 'application/illustrator';
+  $mimes['ai'] = 'application/postscript';
   $mimes['ttf'] = 'application/octet-stream';
   $mimes['otf'] = 'application/octet-stream';
   $mimes['wof'] = 'application/octet-stream';
@@ -252,7 +252,3 @@ add_filter('gform_notification_format','gf_email_format');
 function gf_email_format(){
 	return 'text/plain';
 }
-
-
-
-
